@@ -97,7 +97,8 @@ a:hover {
 }
 
 .btn-primary:hover {
-    background: var(--color-light-accent);
+    background: transparent;
+    color: var(--color-primary);
     transform: translateY(-3px);
     box-shadow: var(--shadow-md);
 }
@@ -407,6 +408,7 @@ a:hover {
 .skill-list span:hover {
     background: var(--color-accent);
     color: white;
+    cursor: default;
 }
 
 /* Work Section */
@@ -501,6 +503,13 @@ a:hover {
     padding: 0.25rem 0.75rem;
     border-radius: var(--border-radius-sm);
     font-size: 0.875rem;
+    transition: var(--transition);
+}
+
+.work-tech span:hover {
+    background: var(--color-accent);
+    color: white;
+    cursor: default;
 }
 
 /* Contact Section */
@@ -656,6 +665,10 @@ a:hover {
     
     .work-card.featured {
         grid-template-columns: 1fr;
+    }
+
+    .work-card.featured .work-image {
+        height: 240px;
     }
     
     .contact-grid {
