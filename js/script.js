@@ -27,14 +27,16 @@ const observer = new IntersectionObserver((entries) => {
 }, observerOptions);
 
 // Observe all elements with fade-in class
-document.querySelectorAll('.fade-in').forEach(el => {
-    observer.observe(el);
+document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('.fade-in').forEach(el => {
+        observer.observe(el);
+    });
 });
 
 // Active navigation highlighting
 window.addEventListener('scroll', () => {
     const sections = document.querySelectorAll('section[id]');
-    const navLinks = document.querySelectorAll('.nav-links a');
+    const navLinks = document.querySelectorAll('.nav-link');
     
     let current = '';
     sections.forEach(section => {
@@ -54,41 +56,52 @@ window.addEventListener('scroll', () => {
 });
 
 // Contact form handling
-document.getElementById('contactForm').addEventListener('submit', function(e) {
-    e.preventDefault();
-    
-    const submitBtn = this.querySelector('.submit-btn');
-    const originalText = submitBtn.textContent;
-    
-    // Add loading state
-    submitBtn.classList.add('loading');
-    submitBtn.disabled = true;
-    
-    // Simulate form submission (replace with actual form submission logic)
-    setTimeout(() => {
-        submitBtn.classList.remove('loading');
-        submitBtn.disabled = false;
-        submitBtn.textContent = 'Message Sent!';
-        submitBtn.style.background = 'var(--color-accent)';
-        
-        // Reset form
-        this.reset();
-        
-        // Reset button after 3 seconds
-        setTimeout(() => {
-            submitBtn.textContent = originalText;
-            submitBtn.style.background = '';
-        }, 3000);
-    }, 2000);
+document.addEventListener('DOMContentLoaded', () => {
+    const contactForm = document.getElementById('contactForm');
+    if (contactForm) {
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const submitBtn = this.querySelector('button[type="submit"]');
+            const originalText = submitBtn.textContent;
+            
+            // Add loading state
+            submitBtn.classList.add('loading');
+            submitBtn.disabled = true;
+            
+            // Simulate form submission (replace with actual form submission logic)
+            setTimeout(() => {
+                submitBtn.classList.remove('loading');
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Message Sent!';
+                
+                // Reset form
+                this.reset();
+                
+                // Reset button after 3 seconds
+                setTimeout(() => {
+                    submitBtn.textContent = originalText;
+                }, 3000);
+            }, 2000);
+        });
+    }
 });
 
-// Add some interactive effects
-document.querySelectorAll('.skill-tag').forEach(tag => {
-    tag.addEventListener('mouseenter', function() {
-        this.style.transform = 'scale(1.05) rotate(2deg)';
+// Skill tags hover effect
+document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('.skill-list span').forEach(tag => {
+        tag.addEventListener('mouseenter', function() {
+            this.style.transform = 'scale(1.05)';
+        });
+        
+        tag.addEventListener('mouseleave', function() {
+            this.style.transform = 'scale(1)';
+        });
     });
-    
-    tag.addEventListener('mouseleave', function() {
-        this.style.transform = 'scale(1) rotate(0deg)';
-    });
+});
+
+// Mobile menu toggle (for future implementation)
+document.addEventListener('DOMContentLoaded', () => {
+    // This is a placeholder for mobile menu functionality
+    // To be implemented if needed
 });
