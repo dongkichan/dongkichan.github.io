@@ -230,7 +230,7 @@
                         </div>
                     </div>
                     <div class="contact-form-container fade-in">
-                        <form class="contact-form" id="contactForm">
+                        <form class="contact-form" id="contactForm" action="https://formspree.io/f/xldldepk" method="POST">
                             <div class="form-row">
                                 <div class="form-group">
                                     <label for="name">Name</label>
@@ -249,6 +249,8 @@
                                 <label for="message">Message</label>
                                 <textarea id="message" name="message" rows="5" required></textarea>
                             </div>
+                            <input type="hidden" name="_subject" value="New Portfolio Contact Form Submission">
+                            <input type="text" name="_gotcha" style="display:none">
                             <button type="submit" class="btn btn-primary btn-full">Send Message</button>
                         </form>
                     </div>

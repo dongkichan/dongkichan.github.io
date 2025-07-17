@@ -55,13 +55,11 @@ window.addEventListener('scroll', () => {
     });
 });
 
-// Contact form handling
+// Contact form handling with Formspree
 document.addEventListener('DOMContentLoaded', () => {
     const contactForm = document.getElementById('contactForm');
     if (contactForm) {
         contactForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
             const submitBtn = this.querySelector('button[type="submit"]');
             const originalText = submitBtn.textContent;
             
@@ -69,20 +67,52 @@ document.addEventListener('DOMContentLoaded', () => {
             submitBtn.classList.add('loading');
             submitBtn.disabled = true;
             
-            // Simulate form submission (replace with actual form submission logic)
-            setTimeout(() => {
+            // Form will be submitted to Formspree
+            // This code handles the after-submission behavior
+            fetch(this.action, {
+                method: this.method,
+                body: new FormData(this),
+                headers: {
+                    'Accept': 'application/json'
+                }
+            })
+            .then(response => {
+                if (response.ok) {
+                    // Success message
+                    submitBtn.classList.remove('loading');
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = 'Message Sent!';
+                    
+                    // Reset form
+                    contactForm.reset();
+                    
+                    // Reset button after 3 seconds
+                    setTimeout(() => {
+                        submitBtn.textContent = originalText;
+                    }, 3000);
+                } else {
+                    // Error handling
+                    response.json().then(data => {
+                        if (Object.hasOwnProperty.call(data, 'errors')) {
+                            const errorMsg = data["errors"].map(error => error["message"]).join(", ");
+                            alert("Oops! There was a problem: " + errorMsg);
+                        } else {
+                            alert("Oops! There was a problem submitting your form");
+                        }
+                        submitBtn.classList.remove('loading');
+                        submitBtn.disabled = false;
+                    });
+                }
+            })
+            .catch(error => {
+                // Network error handling
+                alert("Oops! There was a network problem. Please try again.");
                 submitBtn.classList.remove('loading');
                 submitBtn.disabled = false;
-                submitBtn.textContent = 'Message Sent!';
-                
-                // Reset form
-                this.reset();
-                
-                // Reset button after 3 seconds
-                setTimeout(() => {
-                    submitBtn.textContent = originalText;
-                }, 3000);
-            }, 2000);
+            });
+            
+            // Prevent the default form submission
+            e.preventDefault();
         });
     }
 });
