@@ -16,7 +16,7 @@ This portfolio website presents Christian's professional identity as a Full Stac
 - **Social Media Integration**: Links to LinkedIn, Upwork, and GitHub profiles
 - **Smooth Scroll Navigation**: Fixed header with smooth scrolling to sections
 - **Fade-in Animations**: Intersection Observer API for scroll-triggered animations
-- **Responsive Design**: Mobile-first approach optimized for all devices
+- **Responsive Design**: Mobile-first approach with optimized grid layouts for all screen sizes
 - **Modern UI**: Clean aesthetics with CSS variables for consistent theming
 
 ## Technical Stack
