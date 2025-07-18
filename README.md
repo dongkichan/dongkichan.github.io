@@ -1,27 +1,31 @@
 # Christian Paul Gastardo - Portfolio Website
 
-A modern, responsive portfolio website showcasing the skills, experience, and projects of Christian Paul Gastardo, a Full Stack Developer.
+A modern, responsive portfolio website showcasing the skills, experience, and projects of Christian Paul Gastardo, a Full Stack Developer specializing in Angular, Spring Boot, and modern web technologies.
 
 ## Overview
 
-This portfolio website is designed to present Christian's professional identity, technical expertise, and featured projects to potential clients and employers. The site features a clean, modern design with smooth animations and a user-friendly interface.
+This portfolio website presents Christian's professional identity as a Full Stack Developer with 5+ years of experience. The site features a sophisticated design with smooth scroll animations, interactive elements, and a comprehensive showcase of technical expertise and featured projects.
 
 ## Features
 
-- **Professional Introduction**: Personal branding and introduction section
-- **Skills Showcase**: Highlighting technical expertise and specializations
-- **Project Portfolio**: Featuring selected work with project details
-- **Contact Form**: For professional inquiries and opportunities
-- **Responsive Design**: Optimized for all devices (desktop, tablet, mobile)
-- **Modern UI**: Clean aesthetics with subtle animations and interactions
+- **Hero Section**: Professional introduction with statistics (5+ years experience, 20+ projects, 2.4K+ Upwork hours)
+- **Skills Showcase**: Three main specializations - Frontend Development, Backend Development, and Cloud & DevOps
+- **Featured Work Portfolio**: Four highlighted projects including Laboratory Inventory Management, Tax System, Project Management Platform, and Sweet Cow Mobile
+- **Interactive Contact Form**: Integrated with Formspree for direct inquiries
+- **Social Media Integration**: Links to LinkedIn, Upwork, and GitHub profiles
+- **Smooth Scroll Navigation**: Fixed header with smooth scrolling to sections
+- **Fade-in Animations**: Intersection Observer API for scroll-triggered animations
+- **Responsive Design**: Mobile-first approach optimized for all devices
+- **Modern UI**: Clean aesthetics with CSS variables for consistent theming
 
 ## Technical Stack
 
-- **HTML5**: Semantic markup for content structure
-- **CSS3**: Custom styling with CSS variables for theming
-- **JavaScript**: Vanilla JS for interactive elements
-- **Font Awesome**: Icon library for UI elements
-- **Google Fonts**: 'Inter' font family for typography
+- **HTML5**: Semantic markup with modern elements (header, main, section, footer)
+- **CSS3**: Advanced styling with CSS Grid, Flexbox, CSS variables, and custom animations
+- **Vanilla JavaScript**: ES6+ features including Intersection Observer API, Fetch API, and DOM manipulation
+- **Font Awesome 6.0**: Comprehensive icon library for UI elements
+- **Google Fonts**: 'Inter' font family with multiple weights (300-800)
+- **Formspree**: Third-party service for contact form handling
 
 ## Project Structure
 
@@ -38,12 +42,12 @@ This portfolio website is designed to present Christian's professional identity,
 └── .vscode/             # VS Code configuration
 ```
 
-## Design Versions
+## Key Sections
 
-The portfolio has two design versions:
-
-1. **Version 1**: Original design with a colorful theme based on teal, light blue-green, pale yellow, and gray tones.
-2. **Version 2**: Redesigned version inspired by the [Carlos Portfolio](https://dribbble.com/shots/10724776-Carlos-Personal-Portfolio-Website) on Dribbble, featuring a cleaner layout with more whitespace and sophisticated styling.
+- **Hero Section**: Introduction with professional statistics and call-to-action buttons
+- **Skills Section**: Three specialized areas with technology tags and hover effects
+- **Work Section**: Featured project showcase with technology stacks and descriptions
+- **Contact Section**: Professional contact form with social media links
 
 ## Local Development
 
@@ -66,6 +70,7 @@ npx serve
 ## Deployment
 
 This is a static website that can be deployed to any web hosting service such as:
+
 - GitHub Pages
 - Netlify
 - Vercel
@@ -74,6 +79,7 @@ This is a static website that can be deployed to any web hosting service such as
 ## Browser Compatibility
 
 The site is designed to work on modern browsers:
+
 - Chrome
 - Firefox
 - Safari
