@@ -4,12 +4,13 @@ A modern, responsive portfolio website showcasing the skills, experience, and pr
 
 ## Overview
 
-This portfolio website presents Christian's professional identity as a Full Stack Developer with 5+ years of experience. The site features a sophisticated design with smooth scroll animations, interactive elements, and a comprehensive showcase of technical expertise and featured projects.
+This portfolio website presents Christian's professional identity as a Full Stack Developer with 6+ years of experience spanning from Android development to enterprise Angular applications. The site features a sophisticated design with smooth scroll animations, interactive elements, and a comprehensive showcase of technical expertise and featured projects across various industries including government systems, laboratory research, and enterprise solutions.
 
 ## Features
 
-- **Hero Section**: Professional introduction with statistics (5+ years experience, 20+ projects, 2.4K+ Upwork hours)
+- **Hero Section**: Professional introduction with statistics (6+ years experience, 20+ projects, 2.4K+ Upwork hours)
 - **Skills Showcase**: Three main specializations - Frontend Development, Backend Development, and Cloud & DevOps
+- **Professional Experience Timeline**: Interactive timeline with alternating layout, visual timeline connector, and detailed career progression with achievements and key metrics from 2019 to present
 - **Featured Work Portfolio**: Four highlighted projects including Laboratory Inventory Management, Tax System, Project Management Platform, and Sweet Cow Mobile
 - **Interactive Contact Form**: Integrated with Formspree for direct inquiries
 - **Social Media Integration**: Links to LinkedIn, Upwork, and GitHub profiles
@@ -46,6 +47,7 @@ This portfolio website presents Christian's professional identity as a Full Stac
 
 - **Hero Section**: Introduction with professional statistics and call-to-action buttons
 - **Skills Section**: Three specialized areas with technology tags and hover effects
+- **Experience Section**: Timeline-based professional experience with detailed achievements and metrics
 - **Work Section**: Featured project showcase with technology stacks and descriptions
 - **Contact Section**: Professional contact form with social media links
 
