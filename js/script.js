@@ -220,3 +220,110 @@ document.addEventListener('DOMContentLoaded', () => {
     // This is a placeholder for mobile menu functionality
     // To be implemented if needed
 });
+
+// Recommendations Slider
+let currentSlide = 0;
+let slideInterval;
+const slides = document.querySelectorAll('.recommendation-slide');
+const dots = document.querySelectorAll('.dot');
+const totalSlides = slides.length;
+
+function showSlide(index) {
+    // Hide all slides
+    slides.forEach((slide, i) => {
+        slide.classList.remove('active');
+        if (dots[i]) {
+            dots[i].classList.remove('active');
+        }
+    });
+    
+    // Show current slide
+    if (slides[index]) {
+        slides[index].classList.add('active');
+    }
+    if (dots[index]) {
+        dots[index].classList.add('active');
+    }
+    
+    // Update track position
+    const track = document.querySelector('.slider-track');
+    if (track) {
+        track.style.transform = `translateX(-${index * 100}%)`;
+    }
+}
+
+function changeSlide(direction) {
+    currentSlide += direction;
+    
+    // Wrap around
+    if (currentSlide >= totalSlides) {
+        currentSlide = 0;
+    } else if (currentSlide < 0) {
+        currentSlide = totalSlides - 1;
+    }
+    
+    showSlide(currentSlide);
+    resetInterval();
+}
+
+function goToSlide(index) {
+    currentSlide = index;
+    showSlide(currentSlide);
+    resetInterval();
+}
+
+function startAutoSlide() {
+    slideInterval = setInterval(() => {
+        changeSlide(1);
+    }, 5000); // Change slide every 5 seconds
+}
+
+function resetInterval() {
+    clearInterval(slideInterval);
+    startAutoSlide();
+}
+
+// Initialize slider
+document.addEventListener('DOMContentLoaded', () => {
+    if (slides.length > 0) {
+        showSlide(0);
+        startAutoSlide();
+        
+        // Pause on hover
+        const sliderContainer = document.querySelector('.recommendations-slider');
+        if (sliderContainer) {
+            sliderContainer.addEventListener('mouseenter', () => {
+                clearInterval(slideInterval);
+            });
+            
+            sliderContainer.addEventListener('mouseleave', () => {
+                startAutoSlide();
+            });
+        }
+        
+        // Touch/swipe support for mobile
+        let touchStartX = 0;
+        let touchEndX = 0;
+        
+        const slider = document.querySelector('.slider-container');
+        if (slider) {
+            slider.addEventListener('touchstart', (e) => {
+                touchStartX = e.changedTouches[0].screenX;
+            });
+            
+            slider.addEventListener('touchend', (e) => {
+                touchEndX = e.changedTouches[0].screenX;
+                handleSwipe();
+            });
+        }
+        
+        function handleSwipe() {
+            if (touchEndX < touchStartX - 50) {
+                changeSlide(1); // Swipe left, next slide
+            }
+            if (touchEndX > touchStartX + 50) {
+                changeSlide(-1); // Swipe right, previous slide
+            }
+        }
+    }
+});

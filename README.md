@@ -13,19 +13,20 @@ This portfolio website presents Christian's professional identity as a Full Stac
 - **Professional Experience Timeline**: Interactive timeline with alternating layout on desktop, fully responsive mobile layout with optimized positioning and visual timeline connector, detailed career progression showcasing six key roles with specific achievements and metrics from 2019 to present
 - **Professional Certifications**: Interactive showcase of key certifications including Angular and Lean Six Sigma credentials with clickable certificate images that open in a modal viewer for detailed viewing
 - **Featured Work Portfolio**: Four highlighted projects including Laboratory Inventory Management, Tax System, Project Management Platform, and Sweet Cow Mobile
-- **Interactive Contact Form**: Integrated with Formspree for direct inquiries
+- **Client Recommendations Slider**: Automated carousel showcasing client testimonials with navigation controls, touch/swipe support, and auto-advance functionality
+- **Interactive Contact Form**: Integrated with Formspree for direct inquiries with loading states and success feedback
 - **Social Media Integration**: Links to LinkedIn, Upwork, and GitHub profiles
-- **Smooth Scroll Navigation**: Fixed header with smooth scrolling to sections
+- **Smooth Scroll Navigation**: Fixed header with smooth scrolling to sections and active section highlighting
 - **Fade-in Animations**: Intersection Observer API for scroll-triggered animations
 - **Certificate Modal Viewer**: Full-screen modal for viewing certification images with keyboard and click-outside-to-close functionality
 - **Responsive Design**: Mobile-first approach with optimized layouts including stacked certification cards on mobile, collapsed navigation menu, and adaptive grid systems for all screen sizes
-- **Modern UI**: Clean aesthetics with CSS variables for consistent theming
+- **Modern UI**: Clean aesthetics with CSS variables for consistent theming and hover effects
 
 ## Technical Stack
 
 - **HTML5**: Semantic markup with modern elements (header, main, section, footer)
 - **CSS3**: Advanced styling with CSS Grid, Flexbox, CSS variables, and custom animations
-- **Vanilla JavaScript**: ES6+ features including Intersection Observer API, Fetch API, DOM manipulation, and modal functionality
+- **Vanilla JavaScript**: ES6+ features including Intersection Observer API, Fetch API, DOM manipulation, modal functionality, and touch/swipe gesture support
 - **Font Awesome 6.0**: Comprehensive icon library for UI elements
 - **Google Fonts**: 'Inter' font family with multiple weights (300-800)
 - **Formspree**: Third-party service for contact form handling
@@ -40,8 +41,8 @@ This portfolio website presents Christian's professional identity as a Full Stac
 ├── js/                  # JavaScript files
 │   └── script.js        # Main script file with all functionality
 ├── assets/              # Static assets
-│   ├── images/          # Image files including profile photo
-│   └── fonts/           # Custom font files (if any)
+│   ├── images/          # Image files including profile photo and certification images
+│   └── fonts/           # Custom font files (currently empty)
 └── .vscode/             # VS Code configuration
 ```
 
@@ -52,6 +53,7 @@ This portfolio website presents Christian's professional identity as a Full Stac
 - **Experience Section**: Timeline-based professional experience with detailed achievements and metrics
 - **Certifications Section**: Professional certifications showcase with certificate images and detailed descriptions
 - **Work Section**: Featured project showcase with technology stacks and descriptions
+- **Recommendations Section**: Client testimonials carousel with automatic slideshow and manual navigation
 - **Contact Section**: Professional contact form with social media links
 
 ## Local Development
