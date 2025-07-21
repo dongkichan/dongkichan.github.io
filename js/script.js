@@ -104,7 +104,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     });
                 }
             })
-            .catch(error => {
+            .catch(() => {
                 // Network error handling
                 alert("Oops! There was a network problem. Please try again.");
                 submitBtn.classList.remove('loading');
@@ -128,6 +128,91 @@ document.addEventListener('DOMContentLoaded', () => {
             this.style.transform = 'scale(1)';
         });
     });
+});
+
+// Certificate modal functionality
+function openCertificateModal(imageSrc, title) {
+    const modal = document.getElementById('certificateModal');
+    const modalImg = document.getElementById('modalCertificateImage');
+    const modalTitle = document.getElementById('modalCertificateTitle');
+    
+    if (modal && modalImg && modalTitle) {
+        modal.style.display = 'block';
+        modalImg.src = imageSrc;
+        modalTitle.textContent = title;
+        
+        // Prevent body scroll when modal is open
+        document.body.style.overflow = 'hidden';
+    }
+}
+
+function closeCertificateModal() {
+    const modal = document.getElementById('certificateModal');
+    if (modal) {
+        modal.style.display = 'none';
+        // Restore body scroll
+        document.body.style.overflow = 'auto';
+    }
+}
+
+// Close modal when clicking outside the image
+document.addEventListener('DOMContentLoaded', () => {
+    const modal = document.getElementById('certificateModal');
+    if (modal) {
+        modal.addEventListener('click', function(e) {
+            if (e.target === modal) {
+                closeCertificateModal();
+            }
+        });
+    }
+    
+    // Close modal with Escape key
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+            closeCertificateModal();
+        }
+    });
+});
+
+// Certificate Modal Functions
+function openCertificateModal(imageSrc, caption) {
+    const modal = document.getElementById('certificateModal');
+    const modalImg = document.getElementById('modalCertificateImage');
+    const modalCaption = document.getElementById('modalCaption');
+    
+    modal.style.display = 'block';
+    modalImg.src = imageSrc;
+    modalCaption.textContent = caption;
+    
+    // Prevent body scrolling when modal is open
+    document.body.style.overflow = 'hidden';
+}
+
+function closeCertificateModal() {
+    const modal = document.getElementById('certificateModal');
+    modal.style.display = 'none';
+    
+    // Restore body scrolling
+    document.body.style.overflow = 'auto';
+}
+
+// Close modal when clicking outside the image
+document.addEventListener('DOMContentLoaded', () => {
+    const modal = document.getElementById('certificateModal');
+    if (modal) {
+        modal.addEventListener('click', function(e) {
+            if (e.target === modal) {
+                closeCertificateModal();
+            }
+        });
+    }
+});
+
+// Close modal with Escape key
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+        closeCertificateModal();
+    }
 });
 
 // Mobile menu toggle (for future implementation)

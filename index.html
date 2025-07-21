@@ -24,7 +24,7 @@
           </div>
           <ul class="nav-menu">
             <li><a href="#about" class="nav-link">About</a></li>
-            <li><a href="#experience" class="nav-link">Experience</a></li>
+            <li><a href="#certifications" class="nav-link">Certifications</a></li>
             <li><a href="#work" class="nav-link">Work</a></li>
             <li><a href="#contact" class="nav-link">Contact</a></li>
           </ul>
@@ -371,6 +371,59 @@
         </div>
       </section>
 
+      <!-- Certifications Section -->
+      <section id="certifications" class="certifications-section">
+        <div class="container">
+          <div class="section-header fade-in">
+            <h2 class="section-title">Certifications</h2>
+            <p class="section-subtitle">
+              Professional certifications and achievements
+            </p>
+          </div>
+          <div class="certifications-container">
+            <div class="certifications-grid">
+              <div class="certification-card fade-in">
+                <div class="certification-image" onclick="openCertificateModal('assets/images/hackerrank-angular-intermediate.png', 'HackerRank Angular Intermediate Certificate')">
+                  <img src="assets/images/hackerrank-angular-intermediate.png" alt="HackerRank Angular Intermediate Certificate">
+                  <div class="image-overlay">
+                    <i class="fas fa-expand-alt"></i>
+                    <span>Click to view</span>
+                  </div>
+                </div>
+                <div class="certification-content">
+                  <h3 class="certification-title">Angular (Intermediate)</h3>
+                  <p class="certification-issuer">HackerRank</p>
+                  <p class="certification-date">2024</p>
+                  <p class="certification-description">
+                    Intermediate-level certification demonstrating proficiency in Angular framework, including components, services, and advanced concepts.
+                  </p>
+                </div>
+              </div>
+              <div class="certification-card fade-in">
+                <div class="certification-image" onclick="openCertificateModal('assets/images/lean-six-sigma-yellow-belt.jpg', 'Lean Six Sigma Yellow Belt Certificate')">
+                  <img src="assets/images/lean-six-sigma-yellow-belt.jpg" alt="Lean Six Sigma Yellow Belt Certificate">
+                  <div class="image-overlay">
+                    <i class="fas fa-expand-alt"></i>
+                    <span>Click to view</span>
+                  </div>
+                </div>
+                <div class="certification-content">
+                  <h3 class="certification-title">Lean Six Sigma Yellow Belt</h3>
+                  <p class="certification-issuer">Six Sigma Institute</p>
+                  <p class="certification-date">2024</p>
+                  <p class="certification-description">
+                    Foundation-level certification in Lean Six Sigma methodology for process improvement and quality management.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="certifications-note">
+              <p>More certifications available upon request</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <!-- Work Section -->
       <section id="work" class="work-section">
         <div class="container">
@@ -562,6 +615,17 @@
         <p>&copy; 2025 Christian Paul Gastardo. All rights reserved.</p>
       </div>
     </footer>
+
+    <!-- Certificate Modal -->
+    <div id="certificateModal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close" onclick="closeCertificateModal()">&times;</span>
+            <img id="modalCertificateImage" src="" alt="">
+            <div class="modal-caption">
+                <p id="modalCertificateTitle"></p>
+            </div>
+        </div>
+    </div>
 
     <script src="js/script.js"></script>
   </body>
