@@ -11,22 +11,25 @@ This portfolio website presents Christian's professional identity as a Full Stac
 - **Hero Section**: Professional introduction with statistics (5+ years experience, 20+ projects, 2.4K+ Upwork hours)
 - **Skills Showcase**: Three main specializations - Frontend Development, Backend Development, and Cloud & DevOps
 - **Professional Experience Timeline**: Interactive timeline with alternating layout on desktop, fully responsive mobile layout with optimized positioning and visual timeline connector, detailed career progression showcasing six key roles with specific achievements and metrics from 2019 to present
-- **Professional Certifications**: Interactive showcase of key certifications including Angular and Lean Six Sigma credentials with clickable certificate images that open in a modal viewer for detailed viewing
+- **Education Section**: Academic background showcase featuring Bachelor's degree in Computer Engineering with university logo and program highlights in an interactive card layout
+- **Certifications Section**: Interactive showcase of key certifications including Angular and Lean Six Sigma credentials with clickable certificate images that open in a modal viewer for detailed viewing
 - **Featured Work Portfolio**: Four highlighted projects including Laboratory Inventory Management, Tax System, Project Management Platform, and Sweet Cow Mobile
-- **Client Recommendations Slider**: Automated carousel showcasing client testimonials with navigation controls, touch/swipe support, and auto-advance functionality
-- **Interactive Contact Form**: Integrated with Formspree for direct inquiries with loading states and success feedback
+- **Client Recommendations Slider**: Automated carousel showcasing client testimonials with navigation controls, touch/swipe support, auto-advance functionality, and pause-on-hover behavior
+- **Interactive Contact Form**: Integrated with Formspree for direct inquiries with loading states, success feedback, and error handling
 - **Social Media Integration**: Links to LinkedIn, Upwork, and GitHub profiles
 - **Smooth Scroll Navigation**: Fixed header with smooth scrolling to sections and active section highlighting
 - **Fade-in Animations**: Intersection Observer API for scroll-triggered animations
-- **Certificate Modal Viewer**: Full-screen modal for viewing certification images with keyboard and click-outside-to-close functionality
+- **Certificate Modal Viewer**: Full-screen modal for viewing certification images with keyboard (Escape) and click-outside-to-close functionality
+- **Interactive Elements**: Hover effects on skill tags, work technology tags, and social links with smooth transitions
 - **Responsive Design**: Mobile-first approach with optimized layouts including stacked certification cards on mobile, collapsed navigation menu, and adaptive grid systems for all screen sizes
+- **Modern UI**: Clean aesthetics with CSS variables for consistent theming and hover effectsfication cards on mobile, collapsed navigation menu, and adaptive grid systems for all screen sizes
 - **Modern UI**: Clean aesthetics with CSS variables for consistent theming and hover effects
 
 ## Technical Stack
 
 - **HTML5**: Semantic markup with modern elements (header, main, section, footer)
 - **CSS3**: Advanced styling with CSS Grid, Flexbox, CSS variables, and custom animations
-- **Vanilla JavaScript**: ES6+ features including Intersection Observer API, Fetch API, DOM manipulation, modal functionality, and touch/swipe gesture support
+- **Vanilla JavaScript**: ES6+ features including Intersection Observer API, Fetch API, DOM manipulation, modal functionality, touch/swipe gesture support, automated slider functionality, and form handling with loading states
 - **Font Awesome 6.0**: Comprehensive icon library for UI elements
 - **Google Fonts**: 'Inter' font family with multiple weights (300-800)
 - **Formspree**: Third-party service for contact form handling
@@ -51,10 +54,11 @@ This portfolio website presents Christian's professional identity as a Full Stac
 - **Hero Section**: Introduction with professional statistics and call-to-action buttons
 - **Skills Section**: Three specialized areas with technology tags and hover effects
 - **Experience Section**: Timeline-based professional experience with detailed achievements and metrics
-- **Certifications Section**: Professional certifications showcase with certificate images and detailed descriptions
+- **Education Section**: Academic background showcase featuring Bachelor's degree in Computer Engineering with university logo and program highlights
+- **Certifications Section**: Interactive showcase of key certifications including Angular and Lean Six Sigma credentials with clickable certificate images that open in a modal viewer
 - **Work Section**: Featured project showcase with technology stacks and descriptions
-- **Recommendations Section**: Client testimonials carousel with automatic slideshow and manual navigation
-- **Contact Section**: Professional contact form with social media links
+- **Recommendations Section**: Client testimonials carousel with automatic slideshow, manual navigation, and touch/swipe support
+- **Contact Section**: Professional contact form with Formspree integration and social media links
 
 ## Local Development
 
