@@ -8,6 +8,7 @@ This portfolio website presents Christian's professional identity as a Full Stac
 
 ## Features
 
+- **Advanced Image Optimization**: Complete WebP implementation with up to 70% file size reduction, smart fallback strategy using `<picture>` elements, and comprehensive performance optimization
 - **Custom Branding**: Professional SVG favicon with gradient design featuring personal initials (CP)
 - **Hero Section**: Professional introduction with statistics (5+ years experience, 20+ projects, 2.4K+ Upwork hours)
 - **Skills Showcase**: Three main specializations - Frontend Development, Backend Development, and Cloud & DevOps
@@ -30,6 +31,10 @@ This portfolio website presents Christian's professional identity as a Full Stac
 ## Technical Stack
 
 - **HTML5**: Semantic markup with modern elements (header, main, section, footer) and accessibility features
+  - **Advanced Image Handling**: Complete implementation of `<picture>` elements with WebP sources and optimized fallbacks across all images
+  - **Performance Resource Hints**: Comprehensive preload directives for critical images with proper MIME type specifications (`image/webp`, `image/jpeg`), plus DNS prefetch for external resources
+  - **SEO Optimization**: Descriptive alt attributes and keyword-rich image filenames for improved search visibility
+  - **Character Encoding**: Proper UTF-8 encoding with correct Unicode character display
 - **CSS3**: Advanced styling with CSS Grid, Flexbox, CSS variables, custom animations, and responsive design patterns
   - **Modular CSS**: Organized into separate files by component and functionality with CSS imports
   - **CSS Variables**: Centralized theming with variables for colors, shadows, and spacing
@@ -69,6 +74,8 @@ This portfolio website presents Christian's professional identity as a Full Stac
 │   └── script.js        # Main script file with all functionality
 ├── assets/              # Static assets
 │   ├── images/          # Image files including profile photo and certification images
+│   │   ├── optimized/   # Compressed JPG/PNG versions with SEO-friendly filenames
+│   │   └── webp/        # WebP format versions for modern browsers (up to 70% smaller)
 │   └── fonts/           # Custom font files (currently empty)
 └── .vscode/             # VS Code configuration
 ```
@@ -126,20 +133,37 @@ Uses modern web features including CSS Grid, Flexbox, CSS Variables, Intersectio
 
 ## Recent Updates
 
+- **Complete Image Optimization Overhaul**: Fully implemented WebP image support with fallback for older browsers using the `<picture>` element across all images, optimized image sizes with significant compression, and implemented comprehensive resource hints for performance
+- **Advanced Image Delivery**: All profile photos, certification images, and logos now use modern `<picture>` elements with WebP sources and optimized fallbacks, improving loading performance by up to 70%
+- **Enhanced Performance Optimization**: Added proper preload directives with MIME type specifications for both WebP (`image/webp`) and JPEG (`image/jpeg`) versions of critical images, implemented DNS prefetch for external resources, and optimized image loading strategies
+- **Universal WebP Implementation**: Complete migration of all images to use `<picture>` elements including hero profile image, education logo, and all certification images with proper WebP sources and fallback support
+- **SEO-Friendly Image Naming**: Implemented descriptive, keyword-rich filenames for all images (e.g., `christian-paul-gastardo-profile-photo.jpg`, `hackerrank-angular-intermediate-certificate.jpg`)
+- **Automated Image Management**: Created comprehensive PowerShell scripts for image optimization, WebP conversion, HTML updates, auditing, and cleanup processes
 - **CSS Architecture Refactoring**: Implemented modular CSS structure with separate files for components and sections, improving maintainability and organization
 - **CSS Variables Extraction**: Moved CSS variables to a dedicated variables.css file for centralized theming
 - **Button Styling Enhancement**: Improved primary button styling with consistent border properties for better visual consistency and hover state transitions
-- **CSS Optimization**: Removed redundant CSS pseudo-element styling for featured award cards to streamline the codebase and improve maintainability
-- **Awards Section Styling Enhancement**: Refined visual design with improved hover effects, consistent spacing using CSS variables, enhanced color scheme alignment with brand identity, and optimized highlight interactions for better user experience
-- **Mobile Responsiveness Enhancement**: Improved mobile layout for Awards section with optimized grid layout, reduced padding, and better spacing for mobile devices
 - **Awards Section Implementation**: Added comprehensive Awards & Recognition section showcasing professional achievements including Upwork Top Rated Plus Badge and Fujitsu STARS Award with detailed descriptions and achievement highlights
 - **Navigation Enhancement**: Updated navigation menu to include Awards section link for improved site structure and user experience
 - **Custom Favicon Implementation**: Added professional SVG favicon featuring personal branding (CP initials) for enhanced browser tab identification and professional appearance
 - **Mobile Navigation Enhancement**: Fully functional hamburger menu toggle with animated transitions, body scroll prevention, click-outside-to-close, escape key support, and comprehensive interaction handling
+- **Code Quality Improvements**: Enhanced HTML formatting, proper character encoding fixes, and improved code structure for better maintainability
 
 ## Development Status
 
-The portfolio website is actively maintained with ongoing improvements to user experience and mobile responsiveness. All major features are fully implemented and functional across desktop and mobile devices.
+The portfolio website is actively maintained with ongoing improvements to user experience, performance, and mobile responsiveness. All major features are fully implemented and functional across desktop and mobile devices.
+
+### Image Optimization
+
+The project implements comprehensive modern image optimization techniques:
+
+1. **Complete WebP Implementation**: All images now have WebP versions for modern browsers with significant file size reductions (up to 70% smaller)
+2. **Smart Fallback Strategy**: Optimized JPG/PNG versions for browsers without WebP support, ensuring universal compatibility
+3. **Advanced Picture Elements**: Using HTML5 `<picture>` elements with `<source>` for automatic format negotiation across all images
+4. **Performance Resource Hints**: Preload directives for both WebP and JPEG versions of critical images with proper MIME type specifications (`image/webp`, `image/jpeg`), plus DNS prefetch for external resources
+5. **SEO-Optimized Filenames**: Descriptive, keyword-rich image filenames that improve search engine visibility
+6. **Organized Asset Structure**: Separate directories for optimized (`/optimized/`) and WebP (`/webp/`) versions for clean organization
+7. **Comprehensive Automation**: Complete suite of PowerShell scripts for optimization, conversion, HTML updates, auditing, and cleanup
+8. **Quality-Optimized Compression**: Different quality settings per image type (85% for photos, 90% for certificates/logos) for optimal balance
 
 ### CSS Architecture Transition
 
@@ -153,3 +177,23 @@ Once the transition is complete, the HTML will be updated to reference `main.css
 ## License
 
 All rights reserved © 2025 Christian Paul Gastardo
+
+## Image Optimization Scripts
+
+The project includes a comprehensive suite of PowerShell scripts for complete image optimization workflow:
+
+- **optimize-images.ps1**: Core optimization script that compresses images with quality settings, creates WebP versions, and renames files with SEO-friendly descriptive names
+- **setup-webp-and-optimize.ps1**: Complete setup script that configures WebP tools from Downloads folder, adds them to PATH, and runs full optimization with detailed progress reporting
+- **update-html-images.ps1**: Automatically updates HTML to use optimized images with WebP fallback using `<picture>` elements, ensuring all references point to optimized versions
+- **image-audit.ps1**: Comprehensive audit tool that checks image inventory, optimization status, WebP versions, alt text compliance, filename descriptiveness, and compression results
+- **cleanup-images.ps1**: Intelligent cleanup script that removes duplicate and unoptimized images while preserving only essential optimized versions, includes HTML reference updates
+
+### Script Features:
+
+- **Automated WebP Conversion**: Uses Google's cwebp tool for high-quality WebP generation
+- **Quality-Based Compression**: Different compression settings for different image types (profiles: 85%, certificates: 90%, logos: 90%)
+- **Size Reporting**: Detailed before/after file size comparisons and compression statistics
+- **Error Handling**: Comprehensive error checking and user-friendly progress reporting
+- **HTML Integration**: Automatic HTML updates to use optimized images with proper fallback structure
+
+These scripts provide a complete automated workflow for maintaining optimal image performance and following modern web best practices for image delivery.

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -53,7 +53,7 @@
     />
     <meta
       property="og:image"
-      content="https://christiangastardo.dev/assets/images/profile.png"
+      content="https://christiangastardo.dev/assets/images/optimized/christian-paul-gastardo-profile-photo.jpg"
     />
     <meta property="og:site_name" content="Christian Paul Gastardo Portfolio" />
     <meta property="og:locale" content="en_US" />
@@ -71,7 +71,7 @@
     />
     <meta
       property="twitter:image"
-      content="https://christiangastardo.dev/assets/images/profile.png"
+      content="https://christiangastardo.dev/assets/images/optimized/christian-paul-gastardo-profile-photo.jpg"
     />
 
     <!-- Canonical URL -->
@@ -89,7 +89,7 @@
         "url": "https://christiangastardo.dev",
         "image": {
           "@type": "ImageObject",
-          "url": "https://christiangastardo.dev/assets/images/profile.png",
+          "url": "https://christiangastardo.dev/assets/images/optimized/christian-paul-gastardo-profile-photo.jpg",
           "width": 400,
           "height": 400
         },
@@ -209,7 +209,18 @@
     <link rel="stylesheet" href="css/main.css" />
 
     <!-- Performance optimizations -->
-    <link rel="preload" href="assets/images/profile.png" as="image" />
+    <link
+      rel="preload"
+      href="assets/images/webp/christian-paul-gastardo-profile-photo.webp"
+      as="image"
+      type="image/webp"
+    />
+    <link
+      rel="preload"
+      href="assets/images/optimized/christian-paul-gastardo-profile-photo.jpg"
+      as="image"
+      type="image/jpeg"
+    />
     <link rel="dns-prefetch" href="//fonts.googleapis.com" />
     <link rel="dns-prefetch" href="//cdnjs.cloudflare.com" />
   </head>
@@ -302,11 +313,19 @@
             </div>
             <div class="hero-image fade-in">
               <div class="image-container">
-                <img
-                  src="assets/images/profile.png"
-                  alt="Christian Paul Gastardo - Full Stack Developer specializing in Angular and Spring Boot"
-                  loading="eager"
-                />
+                <picture>
+                  <source
+                    srcset="
+                      assets/images/webp/christian-paul-gastardo-profile-photo.webp
+                    "
+                    type="image/webp"
+                  />
+                  <img
+                    src="assets/images/optimized/christian-paul-gastardo-profile-photo.jpg"
+                    alt="Christian Paul Gastardo - Full Stack Developer specializing in Angular and Spring Boot"
+                    loading="eager"
+                  />
+                </picture>
               </div>
             </div>
           </div>
@@ -616,7 +635,18 @@
           <div class="education-content fade-in">
             <div class="education-card">
               <div class="education-logo">
-                <img src="assets/images/cit-logo.png" alt="CIT-U Logo" />
+                <picture>
+                  <source
+                    srcset="
+                      assets/images/webp/cebu-institute-technology-university-logo.webp
+                    "
+                    type="image/webp"
+                  />
+                  <img
+                    src="assets/images/optimized/cebu-institute-technology-university-logo.png"
+                    alt="Cebu Institute of Technology University (CIT-U) official logo"
+                  />
+                </picture>
               </div>
               <div class="education-details">
                 <h3 class="education-degree">
@@ -670,12 +700,20 @@
               <div class="certification-card fade-in">
                 <div
                   class="certification-image"
-                  onclick="openCertificateModal('assets/images/hackerrank-angular-intermediate.png', 'HackerRank Angular Intermediate Certificate')"
+                  onclick="openCertificateModal('assets/images/optimized/hackerrank-angular-intermediate-certificate.jpg', 'HackerRank Angular Intermediate Certificate')"
                 >
-                  <img
-                    src="assets/images/hackerrank-angular-intermediate.png"
-                    alt="HackerRank Angular Intermediate Certificate"
-                  />
+                  <picture>
+                    <source
+                      srcset="
+                        assets/images/webp/hackerrank-angular-intermediate-certificate.webp
+                      "
+                      type="image/webp"
+                    />
+                    <img
+                      src="assets/images/optimized/hackerrank-angular-intermediate-certificate.jpg"
+                      alt="HackerRank Angular Intermediate Certificate"
+                    />
+                  </picture>
                   <div class="image-overlay">
                     <i class="fas fa-expand-alt"></i>
                     <span>Click to view</span>
@@ -695,12 +733,20 @@
               <div class="certification-card fade-in">
                 <div
                   class="certification-image"
-                  onclick="openCertificateModal('assets/images/lean-six-sigma-yellow-belt.jpg', 'Lean Six Sigma Yellow Belt Certificate')"
+                  onclick="openCertificateModal('assets/images/optimized/lean-six-sigma-yellow-belt-certificate.jpg', 'Lean Six Sigma Yellow Belt Certificate')"
                 >
-                  <img
-                    src="assets/images/lean-six-sigma-yellow-belt.jpg"
-                    alt="Lean Six Sigma Yellow Belt Certificate"
-                  />
+                  <picture>
+                    <source
+                      srcset="
+                        assets/images/webp/lean-six-sigma-yellow-belt-certificate.webp
+                      "
+                      type="image/webp"
+                    />
+                    <img
+                      src="assets/images/optimized/lean-six-sigma-yellow-belt-certificate.jpg"
+                      alt="Lean Six Sigma Yellow Belt Certificate"
+                    />
+                  </picture>
                   <div class="image-overlay">
                     <i class="fas fa-expand-alt"></i>
                     <span>Click to view</span>
@@ -1194,3 +1240,5 @@
     <script src="js/script.js"></script>
   </body>
 </html>
+
+
