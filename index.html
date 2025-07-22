@@ -3,7 +3,75 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Christian Paul Gastardo - Full Stack Developer</title>
+    
+    <!-- Primary Meta Tags -->
+    <title>Christian Paul Gastardo - Full Stack Developer | Angular & Spring Boot Expert</title>
+    <meta name="title" content="Christian Paul Gastardo - Full Stack Developer | Angular & Spring Boot Expert" />
+    <meta name="description" content="Experienced Full Stack Developer specializing in Angular, Spring Boot, and modern web technologies. 5+ years of experience building scalable applications for enterprise clients. Available for freelance projects." />
+    <meta name="keywords" content="Full Stack Developer, Angular Developer, Spring Boot, Java Developer, Web Development, Frontend Developer, Backend Developer, Freelance Developer, Christian Paul Gastardo, Philippines Developer" />
+    <meta name="author" content="Christian Paul Gastardo" />
+    <meta name="robots" content="index, follow" />
+    <meta name="language" content="English" />
+    <meta name="revisit-after" content="7 days" />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://christiangastardo.dev/" />
+    <meta property="og:title" content="Christian Paul Gastardo - Full Stack Developer | Angular & Spring Boot Expert" />
+    <meta property="og:description" content="Experienced Full Stack Developer specializing in Angular, Spring Boot, and modern web technologies. 5+ years of experience building scalable applications for enterprise clients." />
+    <meta property="og:image" content="https://christiangastardo.dev/assets/images/profile.png" />
+    <meta property="og:site_name" content="Christian Paul Gastardo Portfolio" />
+    <meta property="og:locale" content="en_US" />
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://christiangastardo.dev/" />
+    <meta property="twitter:title" content="Christian Paul Gastardo - Full Stack Developer | Angular & Spring Boot Expert" />
+    <meta property="twitter:description" content="Experienced Full Stack Developer specializing in Angular, Spring Boot, and modern web technologies. 5+ years of experience building scalable applications for enterprise clients." />
+    <meta property="twitter:image" content="https://christiangastardo.dev/assets/images/profile.png" />
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://christiangastardo.dev/" />
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Christian Paul Gastardo",
+      "jobTitle": "Full Stack Developer",
+      "description": "Experienced Full Stack Developer specializing in Angular, Spring Boot, and modern web technologies",
+      "url": "https://christiangastardo.dev",
+      "image": "https://christiangastardo.dev/assets/images/profile.png",
+      "sameAs": [
+        "https://www.linkedin.com/in/cgastardo",
+        "https://github.com/dongkichan",
+        "https://www.upwork.com/freelancers/cpgastardo"
+      ],
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Cebu City",
+        "addressCountry": "Philippines"
+      },
+      "alumniOf": {
+        "@type": "CollegeOrUniversity",
+        "name": "Cebu Institute of Technology - University"
+      },
+      "knowsAbout": [
+        "Angular",
+        "Spring Boot",
+        "Java",
+        "TypeScript",
+        "JavaScript",
+        "Python",
+        "Web Development",
+        "Full Stack Development",
+        "Frontend Development",
+        "Backend Development"
+      ]
+    }
+    </script>
+    
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
       rel="stylesheet"
@@ -13,21 +81,27 @@
       rel="stylesheet"
     />
     <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png" />
     <link rel="stylesheet" href="css/main.css" />
+    
+    <!-- Performance optimizations -->
+    <link rel="preload" href="assets/images/profile.png" as="image" />
+    <link rel="dns-prefetch" href="//fonts.googleapis.com" />
+    <link rel="dns-prefetch" href="//cdnjs.cloudflare.com" />
   </head>
   <body>
-    <header class="header">
+    <header class="header" role="banner">
       <div class="container">
-        <nav class="nav">
+        <nav class="nav" role="navigation" aria-label="Main navigation">
           <div class="nav-brand">
             <span class="nav-name">Christian Paul</span>
             <span class="nav-title">Full Stack Developer</span>
           </div>
           <ul class="nav-menu">
-            <li><a href="#about" class="nav-link">About</a></li>
-            <li><a href="#education" class="nav-link">Education</a></li>
+            <li><a href="#about" class="nav-link" aria-label="About Christian Paul">About</a></li>
+            <li><a href="#education" class="nav-link" aria-label="Education background">Education</a></li>
             <li>
-              <a href="#certifications" class="nav-link">Certifications</a>
+              <a href="#certifications" class="nav-link" aria-label="Professional certifications">Certifications</a>
             </li>
             <li><a href="#awards" class="nav-link">Awards</a></li>
             <li><a href="#work" class="nav-link">Work</a></li>
@@ -45,14 +119,14 @@
       </div>
     </header>
 
-    <main class="main">
+    <main class="main" role="main">
       <!-- Hero Section -->
-      <section id="about" class="hero-section">
+      <section id="about" class="hero-section" aria-labelledby="hero-title">
         <div class="container">
           <div class="hero-grid">
             <div class="hero-content fade-in">
               <div class="hero-badge">👋 Hello, I'm</div>
-              <h1 class="hero-title">Christian Paul Gastardo</h1>
+              <h1 id="hero-title" class="hero-title">Christian Paul Gastardo</h1>
               <p class="hero-subtitle">
                 Full Stack Developer specializing in Angular, Spring Boot, and
                 modern web technologies
@@ -85,7 +159,8 @@
               <div class="image-container">
                 <img
                   src="assets/images/profile.png"
-                  alt="Christian Paul Gastardo"
+                  alt="Christian Paul Gastardo - Full Stack Developer specializing in Angular and Spring Boot"
+                  loading="eager"
                 />
               </div>
             </div>
@@ -94,10 +169,10 @@
       </section>
 
       <!-- Skills Section -->
-      <section class="skills-section">
+      <section class="skills-section" aria-labelledby="skills-title">
         <div class="container">
           <div class="section-header fade-in">
-            <h2 class="section-title">What I Do</h2>
+            <h2 id="skills-title" class="section-title">What I Do</h2>
             <p class="section-subtitle">
               I specialize in full-stack development with modern technologies
             </p>

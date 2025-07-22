@@ -1,0 +1,15 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://christiangastardo.dev/sitemap.xml
+
+# Disallow crawling of certain files
+Disallow: /css/
+Disallow: /js/
+Disallow: /*.css$
+Disallow: /*.js$
+
+# Allow crawling of main content
+Allow: /assets/images/
+Allow: /favicon.svg
