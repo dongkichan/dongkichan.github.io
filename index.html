@@ -81,12 +81,18 @@
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
-        "@type": "Person",
+        "@type": ["Person", "ProfessionalService"],
         "name": "Christian Paul Gastardo",
+        "alternateName": "Christian Gastardo",
         "jobTitle": "Full Stack Developer",
-        "description": "Experienced Full Stack Developer specializing in Angular, Spring Boot, and modern web technologies",
+        "description": "Experienced Full Stack Developer specializing in Angular, Spring Boot, and modern web technologies. 5+ years of experience building scalable applications for enterprise clients.",
         "url": "https://christiangastardo.dev",
-        "image": "https://christiangastardo.dev/assets/images/profile.png",
+        "image": {
+          "@type": "ImageObject",
+          "url": "https://christiangastardo.dev/assets/images/profile.png",
+          "width": 400,
+          "height": 400
+        },
         "sameAs": [
           "https://www.linkedin.com/in/cgastardo",
           "https://github.com/dongkichan",
@@ -95,11 +101,17 @@
         "address": {
           "@type": "PostalAddress",
           "addressLocality": "Cebu City",
+          "addressRegion": "Central Visayas",
           "addressCountry": "Philippines"
         },
         "alumniOf": {
           "@type": "CollegeOrUniversity",
-          "name": "Cebu Institute of Technology - University"
+          "name": "Cebu Institute of Technology - University",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Cebu City",
+            "addressCountry": "Philippines"
+          }
         },
         "knowsAbout": [
           "Angular",
@@ -111,8 +123,67 @@
           "Web Development",
           "Full Stack Development",
           "Frontend Development",
-          "Backend Development"
-        ]
+          "Backend Development",
+          "NgRx",
+          "REST APIs",
+          "Microservices"
+        ],
+        "hasOccupation": {
+          "@type": "Occupation",
+          "name": "Full Stack Developer",
+          "occupationLocation": {
+            "@type": "Country",
+            "name": "Philippines"
+          },
+          "skills": [
+            "Angular",
+            "Spring Boot",
+            "Java",
+            "TypeScript",
+            "JavaScript",
+            "Python"
+          ]
+        },
+        "worksFor": {
+          "@type": "Organization",
+          "name": "Freelance"
+        },
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "contactType": "professional",
+          "availableLanguage": ["English", "Filipino"]
+        },
+        "offers": {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Full Stack Development Services",
+            "description": "Professional web application development using Angular, Spring Boot, and modern technologies"
+          },
+          "areaServed": {
+            "@type": "Country",
+            "name": "Philippines"
+          }
+        }
+      }
+    </script>
+
+    <!-- Website Structured Data -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "Christian Paul Gastardo - Full Stack Developer Portfolio",
+        "alternateName": "Christian Gastardo Portfolio",
+        "url": "https://christiangastardo.dev",
+        "description": "Professional portfolio of Christian Paul Gastardo, Full Stack Developer specializing in Angular, Spring Boot, and modern web technologies",
+        "author": {
+          "@type": "Person",
+          "name": "Christian Paul Gastardo"
+        },
+        "inLanguage": "en-US",
+        "copyrightYear": "2025",
+        "genre": "Professional Portfolio"
       }
     </script>
 
