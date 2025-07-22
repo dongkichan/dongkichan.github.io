@@ -1,0 +1,26 @@
+/* CSS Variables for Easy Color Management */
+:root {
+  --bg-primary: #f9f9f9;
+  --bg-secondary: #ffffff;
+  --color-primary: #333333;
+  --color-secondary: #666666;
+  --color-accent: #2d7d7d;
+  --color-light-accent: #a8c8c8;
+  --color-muted: #b8b8b8;
+  --color-border: #eeeeee;
+  --color-highlight: #f5e6a3;
+  --gradient-primary: linear-gradient(
+    135deg,
+    var(--color-accent) 0%,
+    var(--color-light-accent) 100%
+  );
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 8px 30px rgba(0, 0, 0, 0.12);
+  --border-radius-sm: 8px;
+  --border-radius-md: 12px;
+  --border-radius-lg: 24px;
+  --transition: all 0.3s ease;
+  --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    sans-serif;
+}

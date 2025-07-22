@@ -1,0 +1,28 @@
+/* Main CSS file that imports all other CSS files */
+
+/* Base styles and variables */
+@import 'variables.css';
+@import 'base.css';
+@import 'typography.css';
+@import 'buttons.css';
+
+/* Layout components */
+@import 'header.css';
+@import 'footer.css';
+
+/* UI Components */
+@import 'components/modal.css';
+
+/* Section-specific styles */
+@import 'sections/hero.css';
+@import 'sections/skills.css';
+@import 'sections/education.css';
+@import 'sections/certifications.css';
+@import 'sections/awards.css';
+@import 'sections/experience.css';
+@import 'sections/work.css';
+@import 'sections/contact.css';
+@import 'sections/recommendations.css';
+
+/* Utilities and responsive styles */
+@import 'responsive.css';

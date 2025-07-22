@@ -1,0 +1,147 @@
+/* Certifications Section */
+.certifications-section {
+  padding: 6rem 0;
+  background: var(--bg-primary);
+}
+
+.certifications-container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.certifications-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
+}
+
+.certification-card {
+  background: var(--bg-secondary);
+  border-radius: var(--border-radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
+  border: 1px solid var(--color-border);
+}
+
+.certification-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-lg);
+}
+
+.certification-image {
+  width: 100%;
+  height: 250px;
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+}
+
+.certification-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: var(--transition);
+}
+
+.certification-card:hover .certification-image img {
+  transform: scale(1.05);
+}
+
+.image-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: var(--transition);
+  color: white;
+  font-weight: 600;
+}
+
+.image-overlay i {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.image-overlay span {
+  font-size: 0.9rem;
+}
+
+.certification-image:hover .image-overlay {
+  opacity: 1;
+}
+
+.certification-content {
+  padding: 2rem;
+}
+
+.certification-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  margin-bottom: 0.5rem;
+}
+
+.certification-issuer {
+  color: var(--color-accent);
+  font-weight: 600;
+  font-size: 1.1rem;
+  margin-bottom: 0.25rem;
+}
+
+.certification-date {
+  color: var(--color-muted);
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+  font-weight: 500;
+}
+
+.certification-description {
+  color: var(--color-secondary);
+  line-height: 1.6;
+  margin-bottom: 0;
+}
+
+.certifications-note {
+  text-align: center;
+  margin-top: 2rem;
+  padding: 1.5rem;
+  background: var(--bg-secondary);
+  border-radius: var(--border-radius-md);
+  border: 2px dashed var(--color-border);
+}
+
+.certifications-note p {
+  color: var(--color-secondary);
+  font-style: italic;
+  margin: 0;
+  font-size: 1rem;
+}
+
+/* Alternative certification card style */
+.certification-card.alt {
+  display: flex;
+  gap: 1.5rem;
+  flex-direction: column;
+  padding: 2rem;
+}
+
+.certification-icon {
+  width: 60px;
+  height: 60px;
+  background: var(--color-highlight);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-accent);
+  font-size: 1.5rem;
+  flex-shrink: 0;
+}

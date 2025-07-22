@@ -130,8 +130,8 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-// Certificate modal functionality
-function openCertificateModal(imageSrc, title) {
+// Certificate Modal Functions
+function openCertificateModal(imageSrc, caption) {
     const modal = document.getElementById('certificateModal');
     const modalImg = document.getElementById('modalCertificateImage');
     const modalTitle = document.getElementById('modalCertificateTitle');
@@ -139,7 +139,7 @@ function openCertificateModal(imageSrc, title) {
     if (modal && modalImg && modalTitle) {
         modal.style.display = 'block';
         modalImg.src = imageSrc;
-        modalTitle.textContent = title;
+        modalTitle.textContent = caption;
         
         // Prevent body scroll when modal is open
         document.body.style.overflow = 'hidden';
@@ -155,14 +155,25 @@ function closeCertificateModal() {
     }
 }
 
-// Close modal when clicking outside the image
+// Close modal when clicking outside the certificate content
 document.addEventListener('DOMContentLoaded', () => {
     const modal = document.getElementById('certificateModal');
     if (modal) {
         modal.addEventListener('click', function(e) {
-            if (e.target === modal) {
-                closeCertificateModal();
+            const modalImg = document.getElementById('modalCertificateImage');
+            const modalCaption = document.querySelector('.modal-caption');
+            const modalClose = document.querySelector('.modal-close');
+            
+            // Don't close if clicking on the image, caption, or close button
+            if (e.target === modalImg || 
+                e.target === modalCaption || 
+                modalCaption?.contains(e.target) ||
+                e.target === modalClose) {
+                return;
             }
+            
+            // Close modal for any other clicks
+            closeCertificateModal();
         });
     }
     
@@ -174,46 +185,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-// Certificate Modal Functions
-function openCertificateModal(imageSrc, caption) {
-    const modal = document.getElementById('certificateModal');
-    const modalImg = document.getElementById('modalCertificateImage');
-    const modalCaption = document.getElementById('modalCaption');
-    
-    modal.style.display = 'block';
-    modalImg.src = imageSrc;
-    modalCaption.textContent = caption;
-    
-    // Prevent body scrolling when modal is open
-    document.body.style.overflow = 'hidden';
-}
-
-function closeCertificateModal() {
-    const modal = document.getElementById('certificateModal');
-    modal.style.display = 'none';
-    
-    // Restore body scrolling
-    document.body.style.overflow = 'auto';
-}
-
-// Close modal when clicking outside the image
-document.addEventListener('DOMContentLoaded', () => {
-    const modal = document.getElementById('certificateModal');
-    if (modal) {
-        modal.addEventListener('click', function(e) {
-            if (e.target === modal) {
-                closeCertificateModal();
-            }
-        });
-    }
-});
-
-// Close modal with Escape key
-document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape') {
-        closeCertificateModal();
-    }
-});
+// This event listener is already defined inside the DOMContentLoaded event above
 
 // Mobile menu toggle
 document.addEventListener('DOMContentLoaded', () => {

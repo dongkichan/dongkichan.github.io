@@ -1,0 +1,69 @@
+/* Skills Section */
+.skills-section {
+  padding: 6rem 0;
+  background: var(--bg-primary);
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.skill-card {
+  background: var(--bg-secondary);
+  border-radius: var(--border-radius-md);
+  padding: 2.5rem;
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
+  border: 1px solid var(--color-border);
+}
+
+.skill-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-md);
+}
+
+.skill-icon {
+  width: 60px;
+  height: 60px;
+  background: var(--color-highlight);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+  color: var(--color-accent);
+  font-size: 1.5rem;
+}
+
+.skill-card h3 {
+  margin-bottom: 1rem;
+  color: var(--color-primary);
+}
+
+.skill-card p {
+  color: var(--color-secondary);
+  margin-bottom: 1.5rem;
+}
+
+.skill-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.skill-list span {
+  background: var(--color-border);
+  color: var(--color-secondary);
+  padding: 0.25rem 0.75rem;
+  border-radius: var(--border-radius-sm);
+  font-size: 0.875rem;
+  transition: var(--transition);
+}
+
+.skill-list span:hover {
+  background: var(--color-accent);
+  color: white;
+  cursor: default;
+}
