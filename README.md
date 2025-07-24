@@ -17,7 +17,7 @@ This portfolio website presents Christian's professional identity as a Full Stac
 - **Certifications Section**: Interactive showcase of key certifications including Angular and Lean Six Sigma credentials with clickable certificate images that open in a modal viewer for detailed viewing, featuring responsive card layout with column-based design for optimal mobile viewing
 - **Awards & Recognition Section**: Professional achievements showcase featuring industry recognition including Upwork Top Rated Plus Badge and Fujitsu STARS Award with detailed descriptions, achievement highlights, enhanced visual styling with improved hover effects, consistent spacing, and refined color scheme using CSS variables for better brand consistency
 - **Featured Work Portfolio**: Four highlighted projects including Laboratory Inventory Management, Tax System, Project Management Platform, and Sweet Cow Mobile
-- **Client Recommendations Slider**: Automated carousel showcasing client testimonials with navigation controls, touch/swipe support, auto-advance functionality (5-second intervals), and pause-on-hover behavior
+- **Client Recommendations Slider**: Interactive carousel showcasing client testimonials with manual navigation controls and touch/swipe support for mobile devices
 - **Interactive Contact Form**: Integrated with Formspree for direct inquiries with loading states, success feedback, and comprehensive error handling
 - **Social Media Integration**: Links to LinkedIn, Upwork, and GitHub profiles
 - **Smooth Scroll Navigation**: Fixed header with smooth scrolling to sections and active section highlighting
@@ -90,7 +90,7 @@ This portfolio website presents Christian's professional identity as a Full Stac
 - **Certifications Section**: Interactive showcase of key certifications including Angular and Lean Six Sigma credentials with clickable certificate images that open in a modal viewer
 - **Awards Section**: Professional achievements and industry recognition showcase with detailed award descriptions and highlights
 - **Work Section**: Featured project showcase with technology stacks and descriptions
-- **Recommendations Section**: Client testimonials carousel with automatic slideshow, manual navigation, and touch/swipe support
+- **Recommendations Section**: Client testimonials carousel with manual navigation and touch/swipe support
 - **Contact Section**: Professional contact form with Formspree integration and social media links
 
 ## Local Development

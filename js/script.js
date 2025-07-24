@@ -287,31 +287,17 @@ function changeSlide(direction) {
     }
     
     showSlide(currentSlide);
-    resetInterval();
 }
 
 function goToSlide(index) {
     currentSlide = index;
     showSlide(currentSlide);
-    resetInterval();
-}
-
-function startAutoSlide() {
-    slideInterval = setInterval(() => {
-        changeSlide(1);
-    }, 5000); // Change slide every 5 seconds
-}
-
-function resetInterval() {
-    clearInterval(slideInterval);
-    startAutoSlide();
 }
 
 // Initialize slider
 document.addEventListener('DOMContentLoaded', () => {
     if (slides.length > 0) {
         showSlide(0);
-        startAutoSlide();
         
         // Pause on hover
         const sliderContainer = document.querySelector('.recommendations-slider');
