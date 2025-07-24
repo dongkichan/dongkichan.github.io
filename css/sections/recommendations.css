@@ -109,6 +109,11 @@
   quotes: none;
 }
 
+.recommendation-card.featured .recommendation-text {
+  border-left: 0;
+  padding-left: 1rem;
+}
+
 /* Slider Controls */
 .slider-controls {
   position: absolute;

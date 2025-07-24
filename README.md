@@ -40,7 +40,7 @@ This portfolio website presents Christian's professional identity as a Full Stac
   - **CSS Variables**: Centralized theming with variables for colors, shadows, and spacing
 - **Vanilla JavaScript**: ES6+ features including Intersection Observer API, Fetch API, DOM manipulation, modal functionality, touch/swipe gesture support, automated slider functionality, and form handling with loading states
 - **SVG**: Custom favicon with personal branding (CP initials)
-- **Font Awesome 6.0**: Comprehensive icon library for UI elements and navigation
+- **Font Awesome 6.7.2**: Comprehensive icon library for UI elements and navigation with brand-specific icons (Upwork, LinkedIn, GitHub)
 - **Google Fonts**: 'Inter' font family with multiple weights (300-800) for optimal typography
 - **Formspree**: Third-party service for contact form handling and email delivery
 
@@ -133,6 +133,8 @@ Uses modern web features including CSS Grid, Flexbox, CSS Variables, Intersectio
 
 ## Recent Updates
 
+- **Font Awesome Enhancement**: Updated to Font Awesome 6.7.2 with improved brand-specific icons including proper Upwork icons (`fab fa-upwork`, `fab fa-square-upwork`) for better visual consistency and brand recognition
+- **Character Encoding Optimization**: Fixed UTF-8 encoding issues by removing BOM character for improved browser compatibility and cleaner code structure
 - **Complete Image Optimization Overhaul**: Fully implemented WebP image support with fallback for older browsers using the `<picture>` element across all images, optimized image sizes with significant compression, and implemented comprehensive resource hints for performance
 - **Advanced Image Delivery**: All profile photos, certification images, and logos now use modern `<picture>` elements with WebP sources and optimized fallbacks, improving loading performance by up to 70%
 - **Enhanced Performance Optimization**: Added proper preload directives with MIME type specifications for both WebP (`image/webp`) and JPEG (`image/jpeg`) versions of critical images, implemented DNS prefetch for external resources, and optimized image loading strategies
