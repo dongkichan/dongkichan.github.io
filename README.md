@@ -4,20 +4,20 @@ A modern, responsive portfolio website showcasing the skills, experience, and pr
 
 ## Overview
 
-This portfolio website presents Christian's professional identity as a Full Stack Developer with 5+ years of experience spanning from Android development to enterprise Angular applications. The site features a sophisticated design with smooth scroll animations, interactive elements, and a comprehensive showcase of technical expertise and featured projects across various industries including government systems, laboratory research, and enterprise solutions.
+This portfolio website presents Christian's professional identity as a Full Stack Developer with 6+ years of experience spanning from Android development to enterprise Angular applications. The site features a sophisticated design with smooth scroll animations, interactive elements, and a comprehensive showcase of technical expertise and featured projects across various industries including government systems, laboratory research, and enterprise solutions.
 
 ## Features
 
 - **Advanced Image Optimization**: Complete WebP implementation with up to 70% file size reduction, smart fallback strategy using `<picture>` elements, and comprehensive performance optimization
 - **Custom Branding**: Professional SVG favicon with gradient design featuring personal initials (CP)
-- **Hero Section**: Professional introduction with statistics (5+ years experience, 20+ projects, 2.4K+ Upwork hours)
+- **Hero Section**: Professional introduction with statistics (6+ years experience, 20+ projects, 2.4K+ Upwork hours)
 - **Skills Showcase**: Three main specializations - Frontend Development, Backend Development, and Cloud & DevOps
 - **Professional Experience Timeline**: Interactive timeline with alternating layout on desktop, fully responsive mobile layout with optimized positioning and visual timeline connector, detailed career progression showcasing six key roles with specific achievements and metrics from 2019 to present
 - **Education Section**: Academic background showcase featuring Bachelor's degree in Computer Engineering with university logo and program highlights in an interactive card layout
 - **Certifications Section**: Interactive showcase of key certifications including Angular and Lean Six Sigma credentials with clickable certificate images that open in a modal viewer for detailed viewing, featuring responsive card layout with column-based design for optimal mobile viewing
 - **Awards & Recognition Section**: Professional achievements showcase featuring industry recognition including Upwork Top Rated Plus Badge and Fujitsu STARS Award with detailed descriptions, achievement highlights, enhanced visual styling with improved hover effects, consistent spacing, and refined color scheme using CSS variables for better brand consistency
 - **Featured Work Portfolio**: Four highlighted projects including Laboratory Inventory Management, Tax System, Project Management Platform, and Sweet Cow Mobile
-- **Client Recommendations Slider**: Interactive carousel showcasing client testimonials with manual navigation controls and touch/swipe support for mobile devices
+- **Client Recommendations Slider**: Interactive carousel showcasing client testimonials with manual navigation controls and touch/swipe support for mobile devices, featuring recommendations from senior colleagues and clients including detailed testimonials about technical expertise and professional performance
 - **Interactive Contact Form**: Integrated with Formspree for direct inquiries with loading states, success feedback, and comprehensive error handling
 - **Social Media Integration**: Links to LinkedIn, Upwork, and GitHub profiles
 - **Smooth Scroll Navigation**: Fixed header with smooth scrolling to sections and active section highlighting
@@ -34,7 +34,7 @@ This portfolio website presents Christian's professional identity as a Full Stac
   - **Advanced Image Handling**: Complete implementation of `<picture>` elements with WebP sources and optimized fallbacks across all images
   - **Performance Resource Hints**: Comprehensive preload directives for critical images with proper MIME type specifications (`image/webp`, `image/jpeg`), plus DNS prefetch for external resources
   - **SEO Optimization**: Descriptive alt attributes and keyword-rich image filenames for improved search visibility
-  - **Character Encoding**: Proper UTF-8 encoding with correct Unicode character display
+  - **Character Encoding**: Clean UTF-8 encoding without BOM for optimal browser compatibility
 - **CSS3**: Advanced styling with CSS Grid, Flexbox, CSS variables, custom animations, and responsive design patterns
   - **Modular CSS**: Organized into separate files by component and functionality with CSS imports
   - **CSS Variables**: Centralized theming with variables for colors, shadows, and spacing
@@ -59,6 +59,8 @@ This portfolio website presents Christian's professional identity as a Full Stac
 │   ├── header.css       # Header styles
 │   ├── footer.css       # Footer styles
 │   ├── responsive.css   # Responsive design styles
+│   ├── components/      # Reusable UI components
+│   │   └── modal.css    # Modal component styles
 │   ├── sections/        # Section-specific styles
 │   │   ├── hero.css     # Hero section styles
 │   │   ├── skills.css   # Skills section styles
@@ -90,7 +92,7 @@ This portfolio website presents Christian's professional identity as a Full Stac
 - **Certifications Section**: Interactive showcase of key certifications including Angular and Lean Six Sigma credentials with clickable certificate images that open in a modal viewer
 - **Awards Section**: Professional achievements and industry recognition showcase with detailed award descriptions and highlights
 - **Work Section**: Featured project showcase with technology stacks and descriptions
-- **Recommendations Section**: Client testimonials carousel with manual navigation and touch/swipe support
+- **Recommendations Section**: Client testimonials carousel with manual navigation and touch/swipe support, featuring professional recommendations from senior colleagues highlighting technical expertise in Angular, Java, and full-stack development
 - **Contact Section**: Professional contact form with Formspree integration and social media links
 
 ## Local Development
@@ -133,15 +135,17 @@ Uses modern web features including CSS Grid, Flexbox, CSS Variables, Intersectio
 
 ## Recent Updates
 
+- **Enhanced Recommendations Section**: Added new featured recommendation from Andrew McSherry (senior colleague) highlighting technical expertise in Angular and Java, speed of development, and professional reliability - positioned as a featured testimonial with enhanced styling
+- **Character Encoding Fix**: Removed BOM (Byte Order Mark) character from index.html for improved browser compatibility and cleaner code structure
+- **CSS Architecture Completion**: Successfully transitioned to modular CSS architecture with `main.css` as the entry point, improving code organization and maintainability
 - **Font Awesome Enhancement**: Updated to Font Awesome 6.7.2 with improved brand-specific icons including proper Upwork icons (`fab fa-upwork`, `fab fa-square-upwork`) for better visual consistency and brand recognition
-- **Character Encoding Optimization**: Fixed UTF-8 encoding issues by removing BOM character for improved browser compatibility and cleaner code structure
 - **Complete Image Optimization Overhaul**: Fully implemented WebP image support with fallback for older browsers using the `<picture>` element across all images, optimized image sizes with significant compression, and implemented comprehensive resource hints for performance
 - **Advanced Image Delivery**: All profile photos, certification images, and logos now use modern `<picture>` elements with WebP sources and optimized fallbacks, improving loading performance by up to 70%
 - **Enhanced Performance Optimization**: Added proper preload directives with MIME type specifications for both WebP (`image/webp`) and JPEG (`image/jpeg`) versions of critical images, implemented DNS prefetch for external resources, and optimized image loading strategies
 - **Universal WebP Implementation**: Complete migration of all images to use `<picture>` elements including hero profile image, education logo, and all certification images with proper WebP sources and fallback support
 - **SEO-Friendly Image Naming**: Implemented descriptive, keyword-rich filenames for all images (e.g., `christian-paul-gastardo-profile-photo.jpg`, `hackerrank-angular-intermediate-certificate.jpg`)
 - **Automated Image Management**: Created comprehensive PowerShell scripts for image optimization, WebP conversion, HTML updates, auditing, and cleanup processes
-- **CSS Architecture Refactoring**: Implemented modular CSS structure with separate files for components and sections, improving maintainability and organization
+- **CSS Architecture Refactoring**: Completed implementation of modular CSS structure with separate files for components and sections, improving maintainability and organization
 - **CSS Variables Extraction**: Moved CSS variables to a dedicated variables.css file for centralized theming
 - **Button Styling Enhancement**: Improved primary button styling with consistent border properties for better visual consistency and hover state transitions
 - **Awards Section Implementation**: Added comprehensive Awards & Recognition section showcasing professional achievements including Upwork Top Rated Plus Badge and Fujitsu STARS Award with detailed descriptions and achievement highlights
@@ -167,14 +171,15 @@ The project implements comprehensive modern image optimization techniques:
 7. **Comprehensive Automation**: Complete suite of PowerShell scripts for optimization, conversion, HTML updates, auditing, and cleanup
 8. **Quality-Optimized Compression**: Different quality settings per image type (85% for photos, 90% for certificates/logos) for optimal balance
 
-### CSS Architecture Transition
+### CSS Architecture
 
-The project is currently transitioning from a single monolithic CSS file (`styles.css`) to a modular architecture using CSS imports. The new structure uses `main.css` as the entry point that imports all other CSS files. During this transition period, both approaches coexist:
+The project uses a modern modular CSS architecture with `main.css` as the entry point that imports all other CSS files. This structure provides better organization and maintainability:
 
-1. The HTML file still references `styles.css` directly
-2. The new modular structure with `main.css` is being set up in parallel
+1. **main.css**: Entry point that imports all component and section-specific styles
+2. **Modular Structure**: Separate files for variables, base styles, components, and sections
+3. **Legacy Support**: The original `styles.css` is maintained for reference but no longer actively used
 
-Once the transition is complete, the HTML will be updated to reference `main.css` instead of `styles.css`, and the monolithic `styles.css` file will be phased out.
+This architecture allows for better code organization, easier maintenance, and improved development workflow.
 
 ## License
 
