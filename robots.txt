@@ -4,12 +4,23 @@ Allow: /
 # Sitemap
 Sitemap: https://christiangastardo.dev/sitemap.xml
 
-# Disallow crawling of certain files
-Disallow: /css/
-Disallow: /js/
-Disallow: /*.css$
-Disallow: /*.js$
-
-# Allow crawling of main content
-Allow: /assets/images/
+# Allow all critical resources — JS/CSS must be crawlable
+# so search engines can render and evaluate the page properly.
+Allow: /assets/
 Allow: /favicon.svg
+
+# AI training crawlers — opt out (portfolio is not training corpus)
+User-agent: GPTBot
+Disallow: /
+
+User-agent: ClaudeBot
+Disallow: /
+
+User-agent: Google-Extended
+Disallow: /
+
+User-agent: CCBot
+Disallow: /
+
+User-agent: PerplexityBot
+Disallow: /
