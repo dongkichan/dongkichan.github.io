@@ -21,16 +21,9 @@ export const profile = {
     width: 800,
     height: 800,
     alt: 'Portrait of Christian Paul Gastardo',
-    caption: 'Cebu City, 2024',
   },
   hero: {
-    eyebrow: 'Senior full-stack engineer, AI-augmented, Cebu (GMT+8)',
-    headline: { lead: 'The engineer you stop', emphasis: 'worrying', tail: 'about.' },
-    // Alternatives the owner can swap in. Same shape as `headline`.
-    headlineAlternatives: [
-      { lead: 'Fifteen projects.', emphasis: 'Fifteen', tail: 'delivered.' },
-      { lead: 'Built to ship.', emphasis: 'Finished', tail: 'to spec.' },
-    ],
+    role: 'Senior full-stack software engineer, AI-augmented development.',
     subhead:
       'Seven years shipping React, Angular, Next.js, and Spring Boot for enterprise, government, and SaaS. I plan with AI, build with judgement, and finish what I start.',
     primaryCta: { label: 'Start a project', href: '#contact' },

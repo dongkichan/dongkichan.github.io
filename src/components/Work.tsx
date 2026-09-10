@@ -3,6 +3,7 @@ import { projects, type Project } from '../data/projects'
 import { useInView } from '../hooks/useInView'
 import { cx } from '../lib/cx'
 import { ProjectArt } from './art/ProjectArt'
+import { ProjectMedia } from './ProjectMedia'
 import s from './Work.module.css'
 
 function WorkRow({ project, onOpen }: { project: Project; onOpen?: (slug: string, trigger: HTMLElement) => void }) {
@@ -17,7 +18,9 @@ function WorkRow({ project, onOpen }: { project: Project; onOpen?: (slug: string
   return (
     <li>
       <a ref={ref} href={href} className={cx(s.row, inView && 'is-in')} onClick={handle}>
-        <div className={s.art}><ProjectArt variant={project.art} id={project.slug} /></div>
+        <div className={s.art}>
+          {project.media ? <ProjectMedia media={project.media} name={project.client} /> : <ProjectArt variant={project.art} id={project.slug} />}
+        </div>
         <div>
           <p className={s.meta}><span>{project.category}</span><span>{project.year}</span></p>
           <h3 className={s.title}><span>{project.title}</span></h3>
@@ -39,7 +42,7 @@ export function Work({ onOpen }: { onOpen?: (slug: string, trigger: HTMLElement)
       <div className="container">
         <div className="section-head">
           <h2 id="work-title">Selected work</h2>
-          <p>Seven projects since 2019, all under NDA, shown as concept renders.</p>
+          <p>Seven projects since 2019, for clients you can look up.</p>
         </div>
         <ul className={s.list}>
           {projects.map((p) => <WorkRow key={p.slug} project={p} onOpen={onOpen} />)}

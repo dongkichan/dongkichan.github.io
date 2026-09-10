@@ -4,6 +4,7 @@ import type { Project } from '../data/projects'
 import { useInView } from '../hooks/useInView'
 import { cx } from '../lib/cx'
 import { ProjectArt } from './art/ProjectArt'
+import { ProjectMedia } from './ProjectMedia'
 import s from './CaseStudy.module.css'
 
 export function CaseStudy({ project, context, titleId }: { project: Project; context: 'page' | 'modal'; titleId: string }) {
@@ -26,7 +27,11 @@ export function CaseStudy({ project, context, titleId }: { project: Project; con
       </header>
 
       <div ref={artRef} className={cx(s.art, inView && 'is-in')}>
-        <ProjectArt variant={project.art} id={`${context}-${project.slug}`} decorative={false} />
+        {project.media ? (
+          <ProjectMedia media={project.media} name={project.client} lazy={false} />
+        ) : (
+          <ProjectArt variant={project.art} id={`${context}-${project.slug}`} decorative={false} />
+        )}
       </div>
 
       <section className={s.section}><Sub>The problem</Sub><p>{project.problem}</p></section>

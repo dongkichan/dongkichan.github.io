@@ -1,5 +1,19 @@
 export type ArtVariant = 'migration' | 'grid' | 'microfrontend' | 'lab' | 'logs' | 'cnn' | 'mail'
 
+export interface ProjectMedia {
+  kind: 'screenshot' | 'logo'
+  /** WebP for screenshots, SVG for logos. */
+  src: string
+  /** JPEG/PNG fallback for screenshots. */
+  fallback?: string
+  width: number
+  height: number
+  alt: string
+  /** Short label under the image, usually the public domain. */
+  caption: string
+  href?: string
+}
+
 export interface Outcome {
   value: string
   label: string
@@ -23,6 +37,8 @@ export interface Project {
   outcomes: readonly [Outcome, Outcome, Outcome]
   takeaway: string
   art: ArtVariant
+  /** Real imagery when the product is public or the client has a logo we can show. Falls back to `art`. */
+  media?: ProjectMedia
   /** Meta description for the case-study page. */
   seoDescription: string
   /** ISO date of the last content change, used for sitemap lastmod. */
@@ -56,6 +72,7 @@ export const projects: readonly Project[] = [
     takeaway:
       'AI changes what is hard. The bottleneck is no longer typing speed but specification, judgement, and knowing when to throw the output away.',
     art: 'migration',
+    media: { kind: 'logo', src: '/assets/images/projects/greene-information-systems.svg', width: 89, height: 80, alt: 'Greene Information Systems logo', caption: 'greeneis.com', href: 'https://greeneis.com' },
     seoDescription:
       'Case study: migrating business-critical PowerApps to production React (Vite, Tailwind, Zustand, React Query) with an AI-first workflow using Claude Code and Codex, deployed to Azure Static Web Apps.',
     updated: '2026-09-09',
@@ -66,7 +83,7 @@ export const projects: readonly Project[] = [
     category: 'Enterprise SaaS, design to code',
     year: '2025',
     client: 'Indicia Worldwide',
-    clientNote: 'Remote, UK',
+    clientNote: 'Now adm Indicia. Remote, UK',
     role: 'Full-Stack Software Engineer',
     tagline: 'A spreadsheet-grade grid for marketing data, inside an Angular SPA.',
     outcomeLine: 'A spreadsheet-grade grid with merged cells, nested tables, and export.',
@@ -85,22 +102,23 @@ export const projects: readonly Project[] = [
     ],
     takeaway: 'When a UI fights its data model, the UI loses. Decoupling display from data made every later feature cheaper.',
     art: 'grid',
+    media: { kind: 'logo', src: '/assets/images/projects/adm-indicia.svg', width: 192, height: 24, alt: 'adm Indicia logo', caption: 'adm-indicia.com', href: 'https://adm-indicia.com' },
     seoDescription:
       'Case study: a spreadsheet-grade Angular grid with merge/unmerge cells, nested accordion tables, and .xlsx export for an enterprise marketing-optimisation SaaS at Indicia Worldwide.',
     updated: '2026-09-09',
   },
   {
     slug: 'government-tax-platform',
-    title: 'Government Tax Platform',
+    title: 'IRAS Income Tax System',
     category: 'Government, micro-frontends',
     year: '2024 — 2025',
-    client: 'Accenture',
-    clientNote: 'Cebu, PH',
+    client: 'Inland Revenue Authority of Singapore',
+    clientNote: 'Delivered through Accenture',
     role: 'Packaged App Development Senior Analyst',
-    tagline: 'Citizen-scale tax filing on a micro-frontend shell.',
-    outcomeLine: 'Citizen-facing tax modules on a micro-frontend shell, with fewer regressions.',
+    tagline: "Singapore's income tax filing, citizen-scale, on a micro-frontend shell.",
+    outcomeLine: "Income tax modules for Singapore's IRAS on a micro-frontend shell, with fewer regressions.",
     problem:
-      'A national tax platform serving citizens at scale: filing, payments, audit, registry, reports, support. Many teams, one shell. Coupling kills velocity here, and so does fragmentation.',
+      "IRAS runs Singapore's income tax for every resident and business: filing, payments, audit, registry, reports, support. Many teams, one shell. Coupling kills velocity here, and so does fragmentation.",
     built: [
       'Six independently deployable modules integrated through one shell with shared design tokens and authentication.',
       'NgRx state and strictly validated reactive forms across high-traffic flows, with server-driven schema where rules change quarterly.',
@@ -115,22 +133,23 @@ export const projects: readonly Project[] = [
     takeaway:
       'Micro-frontends are an organisational pattern in a technical disguise. Design for team boundaries and the architecture chooses itself.',
     art: 'microfrontend',
+    media: { kind: 'screenshot', src: '/assets/images/projects/iras.webp', fallback: '/assets/images/projects/iras.jpg', width: 1200, height: 720, alt: 'IRAS, Inland Revenue Authority of Singapore website', caption: 'iras.gov.sg', href: 'https://www.iras.gov.sg' },
     seoDescription:
-      'Case study: a national government tax platform built in Angular with a micro-frontend architecture, NgRx state, reactive forms, and a Jasmine test suite that reduced regressions.',
+      "Case study: IRAS, Singapore's national income tax system, built in Angular with a micro-frontend architecture, NgRx state, reactive forms, and a Jasmine test suite that reduced regressions.",
     updated: '2026-09-09',
   },
   {
     slug: 'laboratory-inventory',
-    title: 'Laboratory Inventory Management',
+    title: 'Quipnex Laboratory Inventory',
     category: 'Research SaaS, long-term contract',
     year: '2023 — 2024',
-    client: 'Upwork client',
-    clientNote: '1,618-hour engagement',
+    client: 'Quipnex',
+    clientNote: 'Upwork, 1,618-hour engagement',
     role: 'Senior Full-Stack Developer',
-    tagline: 'A digital assistant for chemists.',
-    outcomeLine: 'A digital assistant for chemists: molecule drawing, inventory, maps. 1,618 hours.',
+    tagline: 'Quipnex, a digital assistant for chemists.',
+    outcomeLine: 'Quipnex, a digital assistant for chemists: molecule drawing, inventory, maps. 1,618 hours.',
     problem:
-      'Research labs tracked specimens, structures, and locations across sprawling spreadsheets. They needed one place for inventory, molecule drawing, sample mapping, and notes, with nothing ever lost.',
+      'Quipnex set out to replace the spreadsheet sprawl research labs use for specimens, structures, and locations: one place for inventory, molecule drawing, sample mapping, and notes, with nothing ever lost.',
     built: [
       'Ketcher integrated for in-browser structure drawing; chemists draw, the app stores canonical SMILES.',
       'Drag-and-drop inventory on NgRx with full undo and redo through action replay, so every change is reversible.',
@@ -145,8 +164,9 @@ export const projects: readonly Project[] = [
     takeaway:
       'The design system was not a deliverable. It was the most leveraged thing I shipped: every later feature was cheaper and harder to break.',
     art: 'lab',
+    media: { kind: 'screenshot', src: '/assets/images/projects/quipnex.webp', fallback: '/assets/images/projects/quipnex.jpg', width: 1200, height: 720, alt: 'Quipnex website', caption: 'quipnex.com', href: 'https://quipnex.com' },
     seoDescription:
-      'Case study: a laboratory inventory management app for chemists with Ketcher structure drawing, drag-and-drop inventory, Google Maps, and undo/redo, delivered over a 1,618-hour Upwork engagement.',
+      'Case study: Quipnex, a laboratory inventory app for chemists with Ketcher structure drawing, drag-and-drop inventory, Google Maps, and undo/redo, delivered over a 1,618-hour Upwork engagement.',
     updated: '2026-09-09',
   },
   {
@@ -174,6 +194,7 @@ export const projects: readonly Project[] = [
     takeaway:
       'Tools built next to the people who use them are different from tools built for them. An hour with support engineers shaped this more than a month of specs.',
     art: 'logs',
+    media: { kind: 'logo', src: '/assets/images/projects/fujitsu.svg', width: 200, height: 97, alt: 'Fujitsu logo', caption: 'fujitsu.com', href: 'https://www.fujitsu.com/global/' },
     seoDescription:
       'Case study: DPulse, an Electron and Angular desktop log analyser that makes 500,000+ row operational logs searchable and repeatable for support engineers at Fujitsu.',
     updated: '2026-09-09',
@@ -203,6 +224,7 @@ export const projects: readonly Project[] = [
     takeaway:
       'AI is mostly data plumbing and evaluation discipline. Knowing what good looks like is still the hard part, and it is why LLM workflows work for me today.',
     art: 'cnn',
+    media: { kind: 'logo', src: '/assets/images/projects/fujitsu.svg', width: 200, height: 97, alt: 'Fujitsu logo', caption: 'fujitsu.com', href: 'https://www.fujitsu.com/global/' },
     seoDescription:
       'Case study: a TensorFlow and Keras image-classification system using transfer learning, packaged behind an inference API with a reproducible training pipeline, at Fujitsu.',
     updated: '2026-09-09',
@@ -212,11 +234,11 @@ export const projects: readonly Project[] = [
     title: 'MailBug — Email for Seniors',
     category: 'Mobile, accessibility',
     year: '2019 — 2020',
-    client: 'Koda Kollectiv',
-    clientNote: 'Mandaue City, PH',
+    client: 'MailBug',
+    clientNote: 'Built at Koda Kollectiv',
     role: 'Software Engineer, Android',
     tagline: 'Email, redesigned for the people email forgot.',
-    outcomeLine: 'Email older adults can use in a week: big targets, voice cues.',
+    outcomeLine: "MailBug's Android email client for older adults: big targets, voice cues.",
     problem:
       'Mainstream email clients are built for power users. For older users with failing eyesight and unsteady hands they are a wall of friction. The brief: a client a 70-year-old can use confidently within a week.',
     built: [
@@ -233,8 +255,9 @@ export const projects: readonly Project[] = [
     takeaway:
       'Designing for someone unlike yourself is the fastest way to become a better engineer. I have not shipped UI the same way since.',
     art: 'mail',
+    media: { kind: 'screenshot', src: '/assets/images/projects/mailbug.webp', fallback: '/assets/images/projects/mailbug.jpg', width: 1200, height: 720, alt: 'MailBug website', caption: 'mailbug.com', href: 'https://mailbug.com' },
     seoDescription:
-      'Case study: MailBug, an accessibility-first Android email client for older adults with large hit targets, simplified flows, and voice confirmations, built in Kotlin and Firebase.',
+      'Case study: the MailBug Android email client for older adults, accessibility-first with large hit targets, simplified flows, and voice confirmations, built in Kotlin and Firebase.',
     updated: '2026-09-09',
   },
 ]

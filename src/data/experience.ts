@@ -41,9 +41,9 @@ export const experience: readonly Role[] = [
     title: 'Packaged App Development Senior Analyst',
     company: 'Accenture',
     location: 'Cebu, PH',
-    summary: 'Citizen-facing modules of a national tax platform, Angular micro-frontends.',
+    summary: "Income tax modules for Singapore's IRAS, on Angular micro-frontends.",
     bullets: [
-      'Built a national government tax system in Angular with a micro-frontend architecture.',
+      "Built income tax modules for IRAS, Singapore's tax authority, in Angular with a micro-frontend architecture.",
       'NgRx state management and reactive forms across high-traffic citizen-facing modules.',
       'Authored comprehensive Jasmine unit tests; raised coverage and reduced regression incidents.',
       'Onboarded onto a complex Angular, NgRx, and micro-frontend stack in weeks while keeping delivery velocity.',
@@ -57,7 +57,7 @@ export const experience: readonly Role[] = [
     summary: 'A 1,618-hour SaaS engagement with consistent five-star ratings.',
     bullets: [
       'Delivered a 1,618-hour enterprise SaaS engagement building Angular features end to end with consistent five-star ratings.',
-      'Built Laboratory Inventory Management: Ketcher chemical structures, drag and drop, Google Maps, undo and redo, rich text.',
+      'Built Quipnex Laboratory Inventory: Ketcher chemical structures, drag and drop, Google Maps, undo and redo, rich text.',
       'Designed reusable component libraries and a complete design system that accelerated downstream feature delivery.',
       'Top Rated Plus badge (top 10%), 100% job success across 15 completed projects.',
     ],
@@ -83,7 +83,7 @@ export const experience: readonly Role[] = [
     summary: 'Production Android apps in Kotlin and Firebase, including MailBug.',
     bullets: [
       'Shipped multiple production Android apps in Kotlin and Firebase.',
-      'MailBug, a senior-optimised email client with accessibility-first design.',
+      'The MailBug Android email client for older adults, accessibility-first by design.',
       'GPS-based services and real-time database sync across consumer apps.',
     ],
   },

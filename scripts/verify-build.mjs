@@ -62,6 +62,14 @@ for (const page of pages) {
   ok(`page ${page.file}`)
 }
 
+// Every project image referenced from the pages must exist in dist.
+const home = read('index.html')
+const mediaRefs = [...new Set([...home.matchAll(/\/assets\/images\/projects\/[^"' )]+/g)].map((m) => m[0]))]
+for (const ref of mediaRefs) {
+  if (!existsSync(join(dist, ref))) fail(`missing project image ${ref}`)
+}
+ok(`${mediaRefs.length} project images present`)
+
 // 404 page is noindex and real content.
 const nf = read('404.html')
 if (!nf.includes('noindex')) fail('404.html: missing noindex')
@@ -97,7 +105,8 @@ const words = (html) => {
 }
 const homeWords = words(read('index.html'))
 console.log(`  · home page visible words: ${homeWords}`)
-if (homeWords > 900) fail(`index.html: ${homeWords} default-visible words, budget is 900`)
+// 950 allows for client names, image captions and the nav; the original page carried about 1,490.
+if (homeWords > 950) fail(`index.html: ${homeWords} default-visible words, budget is 950`)
 for (const s of SLUGS) {
   const w = words(read(`work/${s}/index.html`))
   if (w > 260) fail(`work/${s}: ${w} visible words, budget is 260`)

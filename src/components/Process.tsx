@@ -2,6 +2,7 @@ import { useRef } from 'react'
 import { commitments, processSteps } from '../data/process'
 import { useInView } from '../hooks/useInView'
 import { cx } from '../lib/cx'
+import { BuildSession } from './BuildSession'
 import s from './Process.module.css'
 
 export function Process() {
@@ -14,18 +15,18 @@ export function Process() {
           <h2 id="process-title">How the work gets done</h2>
           <p>Four steps, every time.</p>
         </div>
-        <ol ref={ref} className={cx(s.steps, inView && 'is-in')}>
-          <svg className={s.line} viewBox="0 0 1000 2" preserveAspectRatio="none" aria-hidden="true">
-            <path className="draw" pathLength={1} d="M0 1H1000" />
-          </svg>
-          {processSteps.map((step, i) => (
-            <li key={step.name} className={s.step}>
-              <span className={s.num}>{String(i + 1).padStart(2, '0')}</span>
-              <h3 className={s.name}>{step.name}</h3>
-              <p className={s.text}>{step.text}</p>
-            </li>
-          ))}
-        </ol>
+        <div className={s.grid}>
+          <ol ref={ref} className={cx(s.steps, inView && 'is-in')}>
+            {processSteps.map((step, i) => (
+              <li key={step.name} className={s.step}>
+                <span className={s.num}>{String(i + 1).padStart(2, '0')}</span>
+                <h3 className={s.name}>{step.name}</h3>
+                <p className={s.text}>{step.text}</p>
+              </li>
+            ))}
+          </ol>
+          <div className={s.session}><BuildSession /></div>
+        </div>
         {commitments.length ? (
           <>
             <p className={s.commitLead}>What you can hold me to</p>
