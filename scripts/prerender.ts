@@ -25,7 +25,31 @@ function inlineStylesheet(html: string): string {
   })
 }
 
-const template = inlineStylesheet(rawTemplate)
+/** Fonts the first screen needs: preloaded so they start with the HTML, not after layout. */
+const PRELOAD_FONTS = [
+  { family: 'Fraunces', weight: '300', style: 'normal' },
+  { family: 'Fraunces', weight: '300', style: 'italic' },
+  { family: 'Inter', weight: '400', style: 'normal' },
+  { family: 'JetBrains Mono', weight: '400', style: 'normal' },
+]
+
+function fontPreloads(css: string): string {
+  const links: string[] = []
+  for (const block of css.match(/@font-face\{[^}]*\}/g) ?? []) {
+    const family = /font-family:\s*["']?([^;"']+)/.exec(block)?.[1]?.trim()
+    const style = /font-style:\s*(\w+)/.exec(block)?.[1] ?? 'normal'
+    const weight = /font-weight:\s*(\d+)/.exec(block)?.[1]
+    const url = /url\((\/assets\/[^)]+\.woff2)\)/.exec(block)?.[1]
+    if (!family || !weight || !url) continue
+    if (PRELOAD_FONTS.some((f) => f.family === family && f.weight === weight && f.style === style)) {
+      links.push(`<link rel="preload" as="font" type="font/woff2" crossorigin href="${url}">`)
+    }
+  }
+  return links.join('\n    ')
+}
+
+const inlined = inlineStylesheet(rawTemplate)
+const template = inlined.replace('<!--app-head-->', () => `${fontPreloads(inlined)}\n    <!--app-head-->`)
 
 type ServerEntry = { routes: readonly Route[]; render: (route: Route) => { html: string; head: string } }
 const server = (await import(pathToFileURL(resolve(root, '.ssr-dist/entry-server.js')).href)) as ServerEntry

@@ -4,7 +4,9 @@
   "version": "2.0.0",
   "type": "module",
   "description": "Portfolio and marketing site for Christian Paul Gastardo. Vite + React, prerendered to static HTML.",
-  "engines": { "node": ">=22.12" },
+  "engines": {
+    "node": ">=22.12"
+  },
   "scripts": {
     "dev": "vite",
     "build": "npm run build:client && npm run build:server && npm run prerender",
@@ -19,6 +21,9 @@
     "check": "npm run typecheck && npm run lint && npm test && npm run build && npm run verify"
   },
   "dependencies": {
+    "@fontsource/fraunces": "^5.3.0",
+    "@fontsource/inter": "^5.3.0",
+    "@fontsource/jetbrains-mono": "^5.3.0",
     "react": "19.3.0",
     "react-dom": "19.3.0"
   },

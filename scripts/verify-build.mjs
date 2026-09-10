@@ -45,6 +45,8 @@ for (const page of pages) {
   if (!html.includes('G-ZGW5YW2H21')) fail(`${page.file}: analytics tag missing`)
   if (/<link rel="stylesheet"[^>]*href="\/assets\//.test(html)) fail(`${page.file}: stylesheet should be inlined, not linked`)
   if (!html.includes('<style>')) fail(`${page.file}: inlined stylesheet missing`)
+  if (html.includes('fonts.googleapis.com')) fail(`${page.file}: third-party font CSS should be gone`)
+  if (!/<link rel="preload" as="font"/.test(html)) fail(`${page.file}: font preloads missing`)
   const blocks = [...html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)].map((m) => m[1])
   if (blocks.length !== page.ld.length) fail(`${page.file}: expected ${page.ld.length} JSON-LD blocks, found ${blocks.length}`)
   blocks.forEach((b, i) => {
