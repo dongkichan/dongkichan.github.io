@@ -11,5 +11,5 @@
 .credName { color: var(--text); }
 .creds li a { text-decoration-color: var(--line); }
 .edu { display: flex; align-items: center; gap: 18px; font-size: var(--fs-small); color: var(--muted); }
-.edu img { width: 120px; height: auto; opacity: 0.85; }
+.edu img { width: 170px; height: auto; opacity: 0.9; }
 @media (max-width: 900px) { .grid { grid-template-columns: 1fr; } }

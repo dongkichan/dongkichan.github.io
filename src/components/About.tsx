@@ -14,6 +14,16 @@ export function About() {
             <p className={s.blockTitle}>Stack</p>
             <ul className="tags">{headlineSkills.map((k) => <li key={k}>{k}</li>)}</ul>
           </div>
+          <div className={s.block}>
+            <p className={s.blockTitle}>Education</p>
+            <p className={s.edu}>
+              <picture>
+                <source srcSet={education.logo.webp} type="image/webp" />
+                <img src={education.logo.png} width={education.logo.width} height={education.logo.height} alt={education.logo.alt} loading="lazy" />
+              </picture>
+              <span>{education.degree}, {education.school}, {education.years}</span>
+            </p>
+          </div>
         </div>
         <div className={s.creds}>
           <div>
@@ -39,13 +49,6 @@ export function About() {
               ))}
             </ul>
           </div>
-          <p className={s.edu}>
-            <picture>
-              <source srcSet={education.logo.webp} type="image/webp" />
-              <img src={education.logo.png} width={education.logo.width} height={education.logo.height} alt={education.logo.alt} loading="lazy" />
-            </picture>
-            <span>{education.degree}, {education.school}, {education.years}</span>
-          </p>
         </div>
       </div>
     </section>
