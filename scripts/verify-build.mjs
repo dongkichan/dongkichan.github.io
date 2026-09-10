@@ -64,7 +64,7 @@ for (const page of pages) {
 
 // Every project image referenced from the pages must exist in dist.
 const home = read('index.html')
-const mediaRefs = [...new Set([...home.matchAll(/\/assets\/images\/projects\/[^"' )]+/g)].map((m) => m[0]))]
+const mediaRefs = [...new Set([...home.matchAll(/\/assets\/images\/(?:projects|logos)\/[^"' )]+/g)].map((m) => m[0]))]
 for (const ref of mediaRefs) {
   if (!existsSync(join(dist, ref))) fail(`missing project image ${ref}`)
 }

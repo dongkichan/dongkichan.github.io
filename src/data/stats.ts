@@ -12,8 +12,15 @@ export interface Stat {
 export const stats: readonly Stat[] = [
   { value: 7, display: '7+', suffix: '+', label: 'Years shipping production software' },
   { value: 15, display: '15 / 15', suffix: ' / 15', label: 'Upwork projects delivered' },
-  { value: 2600, display: '2,600+', suffix: '+', format: 'thousands', label: 'Hours billed to clients' },
+  { value: 3400, display: '3,400+', suffix: '+', format: 'thousands', label: 'Hours billed on Upwork' },
   { value: 100, display: '100%', suffix: '%', label: 'Job success score' },
 ]
 
-export const statsCaption = 'Upwork Top Rated Plus, top 10% of talent.'
+/** The badge beside the numbers. */
+export const upworkBadge = {
+  title: 'Top Rated Plus',
+  subtitle: 'Top 10% of talent on Upwork',
+  detail: '100% job success, every contract delivered',
+  href: 'https://www.upwork.com/freelancers/cpgastardo',
+  logo: { src: '/assets/images/logos/upwork.svg', width: 120, height: 60, alt: 'Upwork' },
+}

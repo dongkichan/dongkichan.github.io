@@ -29,7 +29,13 @@ export const profile = {
     primaryCta: { label: 'Start a project', href: '#contact' },
     secondaryCta: { label: 'See the work', href: '#work' },
   },
-  workedWith: ['Accenture', 'Fujitsu', 'Indicia Worldwide', 'Greene Information Systems', 'Koda Kollectiv'],
+  workedWith: [
+    { name: 'Accenture', src: '/assets/images/logos/accenture.svg', width: 163, height: 43, href: 'https://www.accenture.com', scale: 1 },
+    { name: 'Fujitsu', src: '/assets/images/logos/fujitsu.svg', width: 200, height: 97, href: 'https://www.fujitsu.com/global/', scale: 1.15 },
+    { name: 'Indicia Worldwide, now adm Indicia', src: '/assets/images/logos/adm-indicia.svg', width: 192, height: 24, href: 'https://adm-indicia.com', scale: 0.85 },
+    { name: 'Greene Information Systems', src: '/assets/images/logos/greene-information-systems.svg', width: 89, height: 80, href: 'https://greeneis.com', scale: 1.35 },
+    { name: 'Koda Kollectiv', src: '/assets/images/logos/koda-kollectiv.svg', width: 1408, height: 563, href: 'https://kodakollectiv.com', scale: 1 },
+  ],
   bio: [
     'I am a senior full-stack engineer in Cebu. Most of my work is React, Angular, Next.js, and Spring Boot, but the through-line is reliability under complexity: enterprise platforms, government modules, lab tooling.',
     'Right now I lead PowerApps to React migrations with an AI-first workflow. The hard part is no longer typing code. It is deciding what to build and what to throw away.',
