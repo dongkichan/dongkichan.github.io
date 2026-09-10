@@ -8,7 +8,7 @@
 .facts dd small { display: block; color: var(--faint); }
 .art { aspect-ratio: 800 / 480; border-radius: var(--radius); overflow: hidden; border: 1px solid var(--line); }
 .art svg { width: 100%; height: 100%; }
-.section h3 { font-family: var(--font-body); font-weight: 500; font-size: 1.0625rem; margin-bottom: 14px; color: var(--faint); }
+.section h2, .section h3 { font-family: var(--font-body); font-weight: 500; font-size: 1.0625rem; margin-bottom: 14px; color: var(--faint); }
 .section > p { max-width: 62ch; color: var(--muted); font-size: var(--fs-lead); line-height: 1.55; }
 .built { display: grid; gap: 14px; max-width: 62ch; }
 .built li { padding: 14px 0 0; border-top: 1px solid var(--line); color: var(--muted); }

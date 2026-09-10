@@ -18,27 +18,33 @@ import { WorkedWith } from './WorkedWith'
 interface ModalState {
   modal: true
   slug: string
+  /** How many modal entries sit on the history stack above the home page. */
+  depth: number
+}
+
+const modalState = (): ModalState | null => {
+  const st = window.history.state as Partial<ModalState> | null
+  return st?.modal ? (st as ModalState) : null
 }
 
 export function Home() {
   const [openSlug, setOpenSlug] = useState<string | null>(null)
   const project = openSlug ? (projectBySlug(openSlug) ?? null) : null
 
-  const open = useCallback((slug: string) => {
-    const state: ModalState = { modal: true, slug }
+  const push = useCallback((slug: string) => {
+    const depth = (modalState()?.depth ?? 0) + 1
+    const state: ModalState = { modal: true, slug, depth }
     window.history.pushState(state, '', `/work/${slug}/`)
     setOpenSlug(slug)
   }, [])
 
-  const navigate = useCallback((slug: string) => {
-    const state: ModalState = { modal: true, slug }
-    window.history.pushState(state, '', `/work/${slug}/`)
-    setOpenSlug(slug)
-  }, [])
+  const open = push
+  const navigate = push
 
+  /** Close the modal completely, however many prev/next steps were pushed. */
   const close = useCallback(() => {
-    const state = window.history.state as Partial<ModalState> | null
-    if (state?.modal) window.history.back()
+    const depth = modalState()?.depth ?? 0
+    if (depth > 0) window.history.go(-depth)
     else {
       window.history.replaceState(null, '', '/')
       setOpenSlug(null)

@@ -10,6 +10,7 @@ export function CaseStudy({ project, context, titleId }: { project: Project; con
   const artRef = useRef<HTMLDivElement>(null)
   const inView = useInView(artRef, 0.2)
   const Title = context === 'page' ? 'h1' : 'h2'
+  const Sub = context === 'page' ? 'h2' : 'h3'
   const mailto = `mailto:${profile.email}?subject=${encodeURIComponent(`Re: ${project.title}`)}`
   return (
     <article className={s.article} aria-labelledby={titleId}>
@@ -28,22 +29,22 @@ export function CaseStudy({ project, context, titleId }: { project: Project; con
         <ProjectArt variant={project.art} id={`${context}-${project.slug}`} decorative={false} />
       </div>
 
-      <section className={s.section}><h3>The problem</h3><p>{project.problem}</p></section>
+      <section className={s.section}><Sub>The problem</Sub><p>{project.problem}</p></section>
 
       <section className={s.section}>
-        <h3>What I built</h3>
+        <Sub>What I built</Sub>
         <ul className={s.built}>{project.built.map((b) => <li key={b.slice(0, 32)}>{b}</li>)}</ul>
       </section>
 
       <section className={s.section}>
-        <h3>Result</h3>
+        <Sub>Result</Sub>
         <ul className={s.outcomes}>
           {project.outcomes.map((o) => <li key={o.label}><strong>{o.value}</strong><span>{o.label}</span></li>)}
         </ul>
       </section>
 
       <section className={s.section}>
-        <h3>Stack</h3>
+        <Sub>Stack</Sub>
         <ul className="tags">{project.stack.map((t) => <li key={t}>{t}</li>)}</ul>
       </section>
 
