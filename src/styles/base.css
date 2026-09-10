@@ -94,6 +94,9 @@ html.js .is-in .draw:nth-of-type(3n) { transition-delay: 0.3s; }
 /* Hero page-load sequence. */
 .rise { opacity: 0; transform: translate3d(0, 24px, 0); animation: rise 0.65s var(--ease) forwards; }
 @keyframes rise { to { opacity: 1; transform: none; } }
+/* Same motion without the fade, for the largest hero elements: an element that starts at opacity 0 never counts as the largest contentful paint. */
+.rise-solid { transform: translate3d(0, 24px, 0); animation: riseSolid 0.65s var(--ease) forwards; }
+@keyframes riseSolid { to { transform: none; } }
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
@@ -102,6 +105,6 @@ html.js .is-in .draw:nth-of-type(3n) { transition-delay: 0.3s; }
     transition-duration: 0.01ms !important; scroll-behavior: auto !important;
   }
   html.js .draw { stroke-dashoffset: 0; }
-  .rise { opacity: 1; transform: none; animation: none; }
+  .rise, .rise-solid { opacity: 1; transform: none; animation: none; }
 }
 @media (max-width: 720px) { .section-head { flex-direction: column; align-items: flex-start; gap: 12px; } }
