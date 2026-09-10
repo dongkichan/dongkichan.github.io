@@ -11,7 +11,7 @@
 .copy { max-width: 620px; }
 .eyebrow { font-family: var(--font-mono); font-size: var(--fs-mono); color: var(--muted); margin-bottom: 28px; }
 .h1 { margin-bottom: 28px; }
-.h1 span { display: block; }
+.h1 span { display: block; text-wrap: balance; }
 .sub { font-size: var(--fs-lead); line-height: 1.55; color: var(--muted); max-width: 34em; margin-bottom: 36px; }
 .ctas { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 28px; }
 .rise1 { animation-delay: 0s; } .rise2 { animation-delay: 0.08s; } .rise3 { animation-delay: 0.16s; } .rise4 { animation-delay: 0.28s; } .rise5 { animation-delay: 0.4s; }
