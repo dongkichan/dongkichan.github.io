@@ -5,8 +5,6 @@ export function Hero() {
   const { hero, photo } = profile
   return (
     <section className={s.hero} aria-labelledby="hero-title">
-      <div className={`${s.glow} ${s.glow1}`} aria-hidden="true" />
-      <div className={`${s.glow} ${s.glow2}`} aria-hidden="true" />
       <div className={`container ${s.grid}`}>
         <div className={s.copy}>
           <h1 id="hero-title" className={`${s.h1} rise ${s.rise1}`}>{profile.name}</h1>

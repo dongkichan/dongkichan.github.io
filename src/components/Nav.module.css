@@ -1,6 +1,6 @@
 .nav {
   position: sticky; top: 0; z-index: 20;
-  background: rgba(12, 12, 14, 0.78);
+  background: rgba(8, 10, 18, 0.72);
   backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
   border-bottom: 1px solid var(--line);
 }
@@ -11,7 +11,7 @@
 .links a:hover { color: var(--text); }
 .right { display: flex; align-items: center; gap: 18px; }
 .status { display: inline-flex; align-items: center; gap: 8px; font-family: var(--font-mono); font-size: var(--fs-mono); color: var(--muted); white-space: nowrap; }
-.dot { width: 7px; height: 7px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 0 4px rgba(232, 168, 124, 0.18); }
+.dot { width: 7px; height: 7px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 0 4px rgba(224, 182, 108, 0.18); }
 .cv { font-size: var(--fs-small); color: var(--muted); text-decoration: none; }
 .cv:hover { color: var(--text); }
 @media (max-width: 900px) {

@@ -2,16 +2,16 @@
    (dark ground, warm cream text, terracotta accent, Fraunces / Inter / JetBrains Mono).
    Everything else is new. */
 :root {
-  --bg: #0c0c0e;
-  --surface: #14141a;
-  --surface-2: #1b1b22;
+  --bg: #080a12;
+  --surface: #10121c;
+  --surface-2: #171a27;
   --line: rgba(245, 243, 238, 0.1);
   --line-strong: rgba(245, 243, 238, 0.22);
   --text: #f5f3ee;
   --muted: rgba(245, 243, 238, 0.64);
   --faint: rgba(245, 243, 238, 0.5);
-  --accent: #e8a87c;
-  --accent-ink: #2a180c;
+  --accent: #e0b66c;
+  --accent-ink: #1f1706;
   --signal: #9bc4c9;
 
   --font-display: 'Fraunces', 'Iowan Old Style', 'Palatino Linotype', Georgia, serif;

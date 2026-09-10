@@ -1,9 +1,4 @@
-.hero { position: relative; padding-block: clamp(48px, 6vw, 96px) clamp(40px, 5vw, 72px); overflow: hidden; }
-.glow { position: absolute; pointer-events: none; border-radius: 50%; filter: blur(90px); opacity: 0.55; }
-.glow1 { width: 520px; height: 520px; top: -160px; right: 8%; background: radial-gradient(circle, rgba(232, 168, 124, 0.35), transparent 70%); animation: drift1 22s ease-in-out infinite alternate; }
-.glow2 { width: 420px; height: 420px; bottom: -180px; left: -120px; background: radial-gradient(circle, rgba(155, 196, 201, 0.22), transparent 70%); animation: drift2 26s ease-in-out infinite alternate; }
-@keyframes drift1 { to { transform: translate(-40px, 36px) scale(1.08); } }
-@keyframes drift2 { to { transform: translate(36px, -30px) scale(1.06); } }
+.hero { position: relative; padding-block: clamp(48px, 6vw, 96px) clamp(40px, 5vw, 72px); }
 
 .grid { position: relative; display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: clamp(32px, 5vw, 80px); align-items: center; }
 .copy { max-width: 620px; }
@@ -24,5 +19,4 @@
 @media (max-width: 960px) {
   .grid { grid-template-columns: 1fr; }
   .photo { justify-self: start; width: min(100%, 360px); order: -1; }
-  .glow2 { display: none; }
 }

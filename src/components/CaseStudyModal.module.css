@@ -1,4 +1,4 @@
-.overlay { position: fixed; inset: 0; z-index: 50; background: rgba(6, 6, 8, 0.72); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); animation: fade 0.25s var(--ease); }
+.overlay { position: fixed; inset: 0; z-index: 50; background: rgba(4, 6, 14, 0.74); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); animation: fade 0.25s var(--ease); }
 @keyframes fade { from { opacity: 0; } }
 .panel {
   position: absolute; top: 0; right: 0; bottom: 0; width: min(920px, 100%);

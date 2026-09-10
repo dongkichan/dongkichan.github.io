@@ -2,8 +2,9 @@ import type { Route } from './routes'
 import { Home } from './components/Home'
 import { CaseStudyPage } from './components/CaseStudyPage'
 import { NotFound } from './components/NotFound'
+import { Sky } from './components/Sky'
 
-export function App({ route }: { route: Route }) {
+function Page({ route }: { route: Route }) {
   switch (route.kind) {
     case 'home':
       return <Home />
@@ -12,4 +13,13 @@ export function App({ route }: { route: Route }) {
     case 'notFound':
       return <NotFound />
   }
+}
+
+export function App({ route }: { route: Route }) {
+  return (
+    <>
+      <Sky />
+      <Page route={route} />
+    </>
+  )
 }
