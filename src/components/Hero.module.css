@@ -1,0 +1,22 @@
+.hero { position: relative; padding-block: clamp(56px, 7vw, 104px) clamp(40px, 5vw, 72px); overflow: hidden; }
+.glow {
+  position: absolute; inset: auto; pointer-events: none; border-radius: 50%; filter: blur(90px); opacity: 0.55;
+}
+.glow1 { width: 520px; height: 520px; top: -160px; right: 8%; background: radial-gradient(circle, rgba(232, 168, 124, 0.35), transparent 70%); animation: drift1 22s ease-in-out infinite alternate; }
+.glow2 { width: 420px; height: 420px; bottom: -180px; left: -120px; background: radial-gradient(circle, rgba(155, 196, 201, 0.22), transparent 70%); animation: drift2 26s ease-in-out infinite alternate; }
+@keyframes drift1 { to { transform: translate(-40px, 36px) scale(1.08); } }
+@keyframes drift2 { to { transform: translate(36px, -30px) scale(1.06); } }
+
+.grid { position: relative; display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: clamp(32px, 5vw, 80px); align-items: center; }
+.copy { max-width: 620px; }
+.eyebrow { font-family: var(--font-mono); font-size: var(--fs-mono); color: var(--muted); margin-bottom: 28px; }
+.h1 { margin-bottom: 28px; }
+.h1 span { display: block; }
+.sub { font-size: var(--fs-lead); line-height: 1.55; color: var(--muted); max-width: 34em; margin-bottom: 36px; }
+.ctas { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 28px; }
+.rise1 { animation-delay: 0.05s; } .rise2 { animation-delay: 0.15s; } .rise3 { animation-delay: 0.25s; } .rise4 { animation-delay: 0.4s; } .rise5 { animation-delay: 0.55s; }
+
+@media (max-width: 960px) {
+  .grid { grid-template-columns: 1fr; }
+  .glow2 { display: none; }
+}

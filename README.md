@@ -1,36 +1,49 @@
 # christiangastardo.dev
 
-Portfolio site for Christian Paul Gastardo — Senior Full-Stack Software Engineer (AI-Augmented Development).
+Portfolio and marketing site for Christian Paul Gastardo, Senior Full-Stack Software Engineer (AI-augmented development).
 
 Live at **[christiangastardo.dev](https://christiangastardo.dev)**.
 
-## Stack
+## How it works
 
-- **Vite + React 18** with custom static-site generation (SSG) — every route is prerendered to plain HTML at build time.
-- **8 prerendered routes**: home + 7 dedicated case-study pages under `/work/{slug}/`.
-- **No client-side router**: deep links resolve to real HTML files; React hydrates on top for the interactive case-study modal.
-- **GitHub Pages** hosting + Cloudflare-fronted custom domain.
+- **Vite 8 + React 19 + TypeScript**, prerendered to static HTML at build time. No client-side router: every route is a real file, and React hydrates on top for the case-study modal and the animations.
+- **8 routes**: home plus one case study per project under `/work/{slug}/`, plus a real `404.html`.
+- **Content lives in `src/data/`.** Copy, projects, testimonials, credentials, the CV, and the hero terminal script are plain TypeScript objects. Components never contain copy.
+- **Deploys from GitHub Actions** (`.github/workflows/deploy.yml`) on every push to `main`: typecheck, lint, tests, build, verify, then publish `dist/` to GitHub Pages. This repo is the source of truth; `dist/` is never committed.
 
-## Source
+## Commands
 
-This repo holds the **deployed build artifacts**. The source code lives separately and is built/copied here for deployment.
+```bash
+npm install
+npm run dev        # Vite dev server (case-study routes work via SPA fallback)
+npm run check      # typecheck + lint + tests + build + verify, what CI runs
+npm run build      # client build → SSR build → prerender to dist/
+npm run preview    # serve dist/ locally
+```
 
-Source: refactored React components, the `data.js` content store, the `prerender.mjs` SSG script, and per-route SEO head builder. Run `npm run build` in the source repo and copy `dist/` over the contents here (preserving `CNAME`, `favicon.svg`, `assets/images/`, `googleeb31ef72d2c3af0e.html`).
+## Layout
+
+```
+index.html                 Vite template with <!--app-head--> / <!--app-html--> / __APP_ROUTE__ tokens
+public/                    Copied verbatim: CNAME, robots.txt, favicon, CV PDF, Search Console file, images
+scripts/prerender.ts       Renders every route, writes HTML, 404.html, sitemap.xml, .nojekyll
+scripts/verify-build.mjs   CI gate: routes, canonicals, JSON-LD, analytics tag, JS weight, word budget
+src/data/                  All content
+src/lib/                   Pure helpers: routes, SEO head, JSON-LD, template injection, terminal engine
+src/hooks/                 useInView, useCountUp, useHydrated, useMediaQuery, focus trap, scroll lock
+src/components/            Sections, case study, modal; art/ holds the seven SVG concept illustrations
+src/styles/                Design tokens and base styles (CSS Modules per component)
+tests/                     node:test suites for src/lib and routes
+```
+
+## Editing content
+
+Change the words in `src/data/*.ts` and push. To swap the hero headline, edit `profile.hero.headline` (two alternatives are kept alongside it). To change availability, edit `profile.availability`. To add a project, add an entry to `projects` and a scene in `src/components/art/scenes/`; routes, sitemap, and JSON-LD follow automatically.
 
 ## SEO
 
-- Per-route `<title>`, meta description, canonical URL, Open Graph, Twitter Card.
-- JSON-LD: `Person` + `ProfessionalService` + `WebSite` + `ItemList` on home; `CreativeWork` + `BreadcrumbList` on each case study.
-- `sitemap.xml` lists all 8 real URLs.
-- `robots.txt` allows all standard crawlers + `/assets/`; disallows AI training crawlers.
-
-## Performance
-
-- React production builds, code-split into a vendor chunk + app chunk.
-- CSS minified by esbuild.
-- Profile photo served via `<picture>` (WebP + JPG fallback) with explicit dimensions to eliminate CLS.
-- Google Fonts loaded with `preconnect` + `display=swap`.
+Per-route title, description, canonical, Open Graph, and Twitter tags. JSON-LD: Person + ProfessionalService, WebSite, and ItemList on the home page; CreativeWork + BreadcrumbList on each case study. `sitemap.xml` is generated at build time from the route list. `robots.txt` allows standard crawlers and blocks AI training crawlers.
 
 ## License
 
-All rights reserved. Code may be referenced for educational purposes; project content (writing, photography, case studies) is not licensed for reuse.
+All rights reserved. Code may be referenced for educational purposes; content (writing, photography, case studies) is not licensed for reuse.

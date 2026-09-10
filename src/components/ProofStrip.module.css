@@ -1,0 +1,7 @@
+.strip { border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; padding-block: 28px; }
+.stat { display: grid; gap: 4px; }
+.value { font-family: var(--font-display); font-weight: 300; font-size: clamp(2rem, 2.4vw + 1rem, 3rem); line-height: 1; letter-spacing: -0.02em; font-variant-numeric: tabular-nums; }
+.label { font-size: var(--fs-small); color: var(--muted); }
+.caption { padding-block: 14px 0; font-family: var(--font-mono); font-size: var(--fs-mono); color: var(--faint); }
+@media (max-width: 720px) { .grid { grid-template-columns: repeat(2, 1fr); } }
