@@ -12,7 +12,20 @@ import type { Route } from '../src/routes'
 
 const root = process.cwd()
 const dist = resolve(root, 'dist')
-const template = readFileSync(resolve(dist, 'index.html'), 'utf8')
+const rawTemplate = readFileSync(resolve(dist, 'index.html'), 'utf8')
+
+/**
+ * Inline the built stylesheet (about 6 KB gzipped) into every page. It removes a
+ * render-blocking request from the critical path; the file stays on disk unchanged.
+ */
+function inlineStylesheet(html: string): string {
+  return html.replace(/<link rel="stylesheet"[^>]*href="(\/assets\/[^"]+\.css)"[^>]*>/g, (_tag, href: string) => {
+    const css = readFileSync(resolve(dist, href.replace(/^\//, '')), 'utf8').trim()
+    return `<style>${css}</style>`
+  })
+}
+
+const template = inlineStylesheet(rawTemplate)
 
 type ServerEntry = { routes: readonly Route[]; render: (route: Route) => { html: string; head: string } }
 const server = (await import(pathToFileURL(resolve(root, '.ssr-dist/entry-server.js')).href)) as ServerEntry

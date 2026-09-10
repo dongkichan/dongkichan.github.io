@@ -9,9 +9,9 @@
   line-height: 1.75;
   color: var(--muted);
   overflow: hidden;
-  animation: panelIn 0.9s var(--ease) 0.35s both;
+  animation: panelIn 0.8s var(--ease) both;
 }
-@keyframes panelIn { from { opacity: 0; transform: translate3d(0, 24px, 0); } to { opacity: 1; transform: none; } }
+@keyframes panelIn { from { transform: translate3d(0, 20px, 0); } to { transform: none; } }
 .bar { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 10px 14px; border-bottom: 1px solid var(--line); color: var(--faint); font-size: 0.75rem; }
 .dots { display: inline-flex; gap: 6px; }
 .dots i { width: 9px; height: 9px; border-radius: 50%; background: var(--line-strong); }

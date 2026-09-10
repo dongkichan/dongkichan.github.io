@@ -43,6 +43,8 @@ for (const page of pages) {
   if (count(/<link rel="canonical"/g) !== 1) fail(`${page.file}: expected exactly one canonical`)
   if (!html.includes(`<link rel="canonical" href="${page.url}">`)) fail(`${page.file}: canonical does not match ${page.url}`)
   if (!html.includes('G-ZGW5YW2H21')) fail(`${page.file}: analytics tag missing`)
+  if (/<link rel="stylesheet"[^>]*href="\/assets\//.test(html)) fail(`${page.file}: stylesheet should be inlined, not linked`)
+  if (!html.includes('<style>')) fail(`${page.file}: inlined stylesheet missing`)
   const blocks = [...html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)].map((m) => m[1])
   if (blocks.length !== page.ld.length) fail(`${page.file}: expected ${page.ld.length} JSON-LD blocks, found ${blocks.length}`)
   blocks.forEach((b, i) => {

@@ -91,7 +91,7 @@ html.js .is-in .draw:nth-of-type(2n) { transition-delay: 0.15s; }
 html.js .is-in .draw:nth-of-type(3n) { transition-delay: 0.3s; }
 
 /* Hero page-load sequence. */
-.rise { opacity: 0; transform: translate3d(0, 28px, 0); animation: rise 0.8s var(--ease) forwards; }
+.rise { opacity: 0; transform: translate3d(0, 24px, 0); animation: rise 0.65s var(--ease) forwards; }
 @keyframes rise { to { opacity: 1; transform: none; } }
 
 @media (prefers-reduced-motion: reduce) {

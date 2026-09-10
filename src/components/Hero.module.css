@@ -14,7 +14,7 @@
 .h1 span { display: block; }
 .sub { font-size: var(--fs-lead); line-height: 1.55; color: var(--muted); max-width: 34em; margin-bottom: 36px; }
 .ctas { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 28px; }
-.rise1 { animation-delay: 0.05s; } .rise2 { animation-delay: 0.15s; } .rise3 { animation-delay: 0.25s; } .rise4 { animation-delay: 0.4s; } .rise5 { animation-delay: 0.55s; }
+.rise1 { animation-delay: 0s; } .rise2 { animation-delay: 0.08s; } .rise3 { animation-delay: 0.16s; } .rise4 { animation-delay: 0.28s; } .rise5 { animation-delay: 0.4s; }
 
 @media (max-width: 960px) {
   .grid { grid-template-columns: 1fr; }
