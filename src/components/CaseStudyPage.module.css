@@ -1,0 +1,5 @@
+.main { padding-block: clamp(40px, 5vw, 72px) var(--section); }
+.crumbs { display: flex; gap: 10px; font-size: var(--fs-small); color: var(--faint); margin-bottom: clamp(28px, 4vw, 48px); }
+.crumbs a { color: var(--muted); text-decoration: none; }
+.crumbs a:hover { color: var(--text); }
+.inner { max-width: 880px; }

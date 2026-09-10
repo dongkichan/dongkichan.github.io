@@ -1,0 +1,15 @@
+.grid { display: grid; grid-template-columns: minmax(0, 6fr) minmax(0, 6fr); gap: clamp(32px, 5vw, 80px); align-items: start; }
+.h2 { margin-bottom: 28px; }
+.bio { display: grid; gap: 18px; font-size: var(--fs-lead); line-height: 1.55; color: var(--muted); max-width: 34em; }
+.bio p:first-child { color: var(--text); }
+.block { margin-top: clamp(32px, 4vw, 48px); }
+.blockTitle { font-family: var(--font-body); font-weight: 500; font-size: var(--fs-small); color: var(--faint); margin-bottom: 14px; }
+.creds { display: grid; gap: 32px; padding-top: 12px; }
+.creds ul { display: grid; gap: 10px; }
+.creds li { display: flex; justify-content: space-between; gap: 12px; padding-bottom: 10px; border-bottom: 1px solid var(--line); font-size: var(--fs-small); }
+.creds li > span:last-child { color: var(--faint); white-space: nowrap; }
+.credName { color: var(--text); }
+.creds li a { text-decoration-color: var(--line); }
+.edu { display: flex; align-items: center; gap: 18px; font-size: var(--fs-small); color: var(--muted); }
+.edu img { width: 170px; height: auto; opacity: 0.9; }
+@media (max-width: 900px) { .grid { grid-template-columns: 1fr; } }

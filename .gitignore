@@ -46,3 +46,6 @@ jspm_packages/
 
 # Kiro IDE files
 .kiro/
+# Build output (deployed by GitHub Actions, never committed)
+dist/
+.ssr-dist/

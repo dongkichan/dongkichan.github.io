@@ -1,0 +1,24 @@
+.overlay { position: fixed; inset: 0; z-index: 50; background: rgba(4, 6, 14, 0.74); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); animation: fade 0.25s var(--ease); }
+@keyframes fade { from { opacity: 0; } }
+.panel {
+  position: absolute; top: 0; right: 0; bottom: 0; width: min(920px, 100%);
+  background: var(--bg); border-left: 1px solid var(--line);
+  overflow-y: auto; scrollbar-width: thin; scrollbar-color: var(--accent) transparent;
+  animation: slide 0.4s var(--ease);
+  padding: clamp(24px, 4vw, 56px) clamp(20px, 5vw, 72px) 48px;
+}
+.panel::-webkit-scrollbar { width: 8px; }
+.panel::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 4px; }
+@keyframes slide { from { transform: translateX(40px); opacity: 0; } }
+.top { display: flex; justify-content: space-between; align-items: center; margin-bottom: clamp(24px, 3vw, 40px); }
+.close { display: inline-flex; align-items: center; gap: 8px; min-height: 40px; padding: 0 14px; border: 1px solid var(--line-strong); border-radius: 999px; font-size: var(--fs-small); }
+.close:hover { border-color: var(--accent); }
+.hint { font-family: var(--font-mono); font-size: var(--fs-mono); color: var(--faint); }
+.pager { display: flex; justify-content: space-between; gap: 16px; margin-top: clamp(40px, 5vw, 64px); padding-top: 24px; border-top: 1px solid var(--line); }
+.pager button { display: grid; gap: 2px; text-align: left; font-size: var(--fs-small); color: var(--muted); }
+.pager button:last-child { text-align: right; }
+.pager button span { color: var(--faint); font-size: 0.8rem; }
+.pager button strong { font-weight: 500; color: var(--text); }
+.pager button:hover strong { color: var(--accent); }
+@media (max-width: 640px) { .hint { display: none; } }
+@media (prefers-reduced-motion: reduce) { .overlay, .panel { animation: none; } }

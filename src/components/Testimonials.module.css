@@ -1,0 +1,9 @@
+.lead { max-width: 30em; }
+.lead blockquote { font-family: var(--font-display); font-weight: 300; font-size: clamp(1.5rem, 1.6vw + 1rem, 2.3rem); line-height: 1.3; letter-spacing: -0.01em; margin: 0 0 24px; }
+.grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; margin-top: clamp(40px, 5vw, 72px); padding-top: 32px; border-top: 1px solid var(--line); }
+.grid blockquote { margin: 0 0 18px; color: var(--muted); }
+.who { display: grid; gap: 2px; font-size: var(--fs-small); }
+.who strong { font-weight: 500; }
+.who span { color: var(--faint); }
+.who a { color: var(--faint); }
+@media (max-width: 900px) { .grid { grid-template-columns: 1fr; gap: 32px; } }

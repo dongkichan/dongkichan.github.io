@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <rect width="32" height="32" rx="6" fill="#080a12"/>
+  <text x="16" y="23" font-family="'Fraunces', 'Tiempos Headline', Georgia, serif" font-size="22" font-weight="400" font-style="italic" text-anchor="middle" fill="#e0b66c">g</text>
+  <circle cx="25" cy="7" r="2" fill="#e0b66c"/>
+</svg>

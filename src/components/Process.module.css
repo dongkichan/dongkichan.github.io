@@ -1,0 +1,20 @@
+.grid { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: clamp(32px, 5vw, 72px); align-items: start; }
+.steps { position: relative; display: grid; gap: 28px; padding-left: 28px; }
+.steps::before { content: ''; position: absolute; left: 0; top: 6px; bottom: 6px; width: 2px; background: var(--line-strong); transform-origin: top; transform: scaleY(0); transition: transform 1.2s var(--ease); }
+:global(html:not(.js)) .steps::before, .steps:global(.is-in)::before { transform: scaleY(1); }
+.step { position: relative; }
+.step::before { content: ''; position: absolute; top: 4px; left: -35px; width: 12px; height: 12px; border-radius: 50%; background: var(--bg); border: 2px solid var(--accent); }
+.num { font-family: var(--font-mono); font-size: var(--fs-mono); color: var(--accent); display: block; margin-bottom: 6px; }
+.name { font-family: var(--font-body); font-weight: 500; font-size: 1.125rem; margin-bottom: 6px; }
+.text { color: var(--muted); font-size: var(--fs-small); max-width: 34ch; }
+.session { position: sticky; top: 92px; }
+.commitLead { color: var(--faint); font-size: var(--fs-small); margin-top: clamp(56px, 7vw, 96px); }
+.commit { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; margin-top: 16px; padding-top: 28px; border-top: 1px solid var(--line); }
+.commit h3 { font-family: var(--font-body); font-weight: 500; font-size: 1.0625rem; margin-bottom: 8px; }
+.commit p { color: var(--muted); font-size: var(--fs-small); max-width: 34ch; }
+@media (prefers-reduced-motion: reduce) { .steps::before { transform: scaleY(1); transition: none; } }
+@media (max-width: 900px) {
+  .grid { grid-template-columns: 1fr; }
+  .session { position: static; }
+  .commit { grid-template-columns: 1fr; gap: 24px; }
+}

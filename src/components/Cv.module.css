@@ -1,0 +1,15 @@
+.list { border-top: 1px solid var(--line); }
+.role { display: grid; grid-template-columns: 140px 1fr; gap: 24px; padding-block: 24px; border-bottom: 1px solid var(--line); }
+.years { font-family: var(--font-mono); font-size: var(--fs-mono); color: var(--faint); padding-top: 6px; }
+.title { font-family: var(--font-body); font-weight: 500; font-size: 1.0625rem; margin-bottom: 2px; }
+.org { color: var(--muted); font-size: var(--fs-small); margin-bottom: 10px; }
+.summary { color: var(--muted); max-width: 60ch; }
+.details { margin-top: 10px; }
+.details summary { cursor: pointer; font-size: var(--fs-small); color: var(--faint); list-style: none; display: inline-flex; align-items: center; gap: 6px; }
+.details summary::-webkit-details-marker { display: none; }
+.details summary::before { content: '+'; font-family: var(--font-mono); }
+.details[open] summary::before { content: '–'; }
+.details ul { display: grid; gap: 8px; margin-top: 12px; color: var(--muted); font-size: var(--fs-small); max-width: 64ch; }
+.details li { padding-left: 16px; position: relative; }
+.details li::before { content: ''; position: absolute; left: 0; top: 0.7em; width: 6px; height: 1px; background: var(--faint); }
+@media (max-width: 640px) { .role { grid-template-columns: 1fr; gap: 6px; } }

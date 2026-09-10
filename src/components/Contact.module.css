@@ -1,0 +1,12 @@
+.wrap { padding-block: var(--section) clamp(48px, 6vw, 96px); }
+.h2 { font-size: clamp(2.4rem, 5vw + 1rem, 6rem); line-height: 1; margin-bottom: 40px; }
+.h2 span { display: block; }
+.h2 span:last-child { color: var(--muted); }
+.email { display: inline-block; font-family: var(--font-display); font-weight: 300; font-size: clamp(1.4rem, 2.4vw + 0.6rem, 2.6rem); text-decoration-color: var(--line-strong); text-decoration-thickness: 1px; margin-bottom: 40px; }
+.email:hover { text-decoration-color: var(--accent); }
+.note { color: var(--muted); margin: -24px 0 40px; }
+.socials { display: flex; flex-wrap: wrap; gap: 16px 40px; }
+.socials li { display: grid; gap: 2px; font-size: var(--fs-small); }
+.socials li span { color: var(--faint); }
+.socials a { text-decoration: none; }
+.socials a:hover { color: var(--accent); }
