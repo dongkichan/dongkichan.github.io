@@ -8,7 +8,6 @@ export function Cv() {
       <div className="container">
         <div className="section-head">
           <h2 id="cv-title">The path, so far</h2>
-          <a className="btn btn-ghost" href={profile.cvPath} download>Download CV</a>
         </div>
         <ol className={s.list}>
           {experience.map((r) => (
@@ -26,6 +25,9 @@ export function Cv() {
             </li>
           ))}
         </ol>
+        <div className={s.download}>
+          <a className="btn btn-ghost" href={profile.cvPath} download>Download CV</a>
+        </div>
       </div>
     </section>
   )

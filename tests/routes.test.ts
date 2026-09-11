@@ -12,9 +12,9 @@ test('routes contain the home page and one case-study route per project', () => 
   }
 })
 
-test('there are exactly seven projects with unique slugs', () => {
-  assert.equal(projects.length, 7)
-  assert.equal(new Set(projects.map((p) => p.slug)).size, 7)
+test('there are exactly nine projects with unique slugs', () => {
+  assert.equal(projects.length, 9)
+  assert.equal(new Set(projects.map((p) => p.slug)).size, 9)
 })
 
 test('resolveRoute() returns the case route for a case-study path', () => {

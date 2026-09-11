@@ -1,4 +1,4 @@
-export type ArtVariant = 'migration' | 'grid' | 'microfrontend' | 'lab' | 'logs' | 'cnn' | 'mail'
+export type ArtVariant = 'migration' | 'sweep' | 'sync' | 'grid' | 'microfrontend' | 'lab' | 'logs' | 'cnn' | 'mail'
 
 export interface ProjectMedia {
   kind: 'screenshot' | 'logo'
@@ -76,6 +76,66 @@ export const projects: readonly Project[] = [
     seoDescription:
       'Case study: migrating business-critical PowerApps to production React (Vite, Tailwind, Zustand, React Query) with an AI-first workflow using Claude Code and Codex, deployed to Azure Static Web Apps.',
     updated: '2026-09-09',
+  },
+  {
+    slug: 'receiving-automation-runbooks',
+    title: 'Receiving — Unattended Reconciliation on Azure Automation',
+    category: 'Automation, Azure',
+    year: '2026',
+    client: 'Greene Information Systems',
+    clientNote: 'Internal operations. Remote, US',
+    role: 'Software Developer, automation and integrations',
+    tagline: 'Scheduled runbooks that keep purchase orders, parcels, and people in sync.',
+    outcomeLine: 'Eight scheduled sweeps a day reconcile ConnectWise and parcel tracking, inside the free tier.',
+    problem:
+      'The warehouse receiving app depended on ConnectWise callbacks and carrier updates that arrive late, out of order, or not at all. Someone had to notice a stale purchase order or a parcel stuck in transit, and nobody\'s job was to watch.',
+    built: [
+      'A maintenance runbook on Azure Automation, six times a day: callback health, recent-sync check, ConnectWise reconcile, tracking refresh. Each step logged and continue-on-error.',
+      'A force-refresh sweep timed to the measured carrier van-scan window, on a pluggable 17TRACK / Ship24 layer with a hard monthly call budget.',
+      'Teams alerts as Adaptive Cards, live updates over SignalR, a self-updating desktop print agent for label printers, and a gap register for every known trade-off.',
+    ],
+    stack: ['Azure Automation', 'Python', 'ConnectWise API', 'Microsoft Graph', 'Teams', 'Azure Functions'],
+    outcomes: [
+      { value: '8 / day', label: 'Scheduled sweeps, weekdays' },
+      { value: '~60 min', label: 'Job time a month, of 500 free' },
+      { value: '90 / 100', label: 'Tracking calls budgeted' },
+    ],
+    takeaway:
+      'Automation is mostly deciding when not to run. Measuring the carrier scan window made two well-timed sweeps beat twenty.',
+    art: 'sweep',
+    seoDescription:
+      'Case study: Azure Automation runbooks that reconcile a warehouse receiving app with ConnectWise and carrier tracking on a measured schedule, with Teams alerts and a hard API budget, at Greene Information Systems.',
+    updated: '2026-09-10',
+  },
+  {
+    slug: 'asset-inventory-sync-runbooks',
+    title: 'Track My Assets — ConnectWise to SharePoint Sync',
+    category: 'Automation, integrations',
+    year: '2026',
+    client: 'Greene Information Systems',
+    clientNote: 'Internal tooling. Remote, US',
+    role: 'Software Developer, automation and integrations',
+    tagline: 'Fragile Power Automate flows, replaced by idempotent Python runbooks.',
+    outcomeLine: 'Idempotent nightly runbooks built to retire three fragile flows and hand re-keying.',
+    problem:
+      'Three scheduled Power Automate flows fed the inventory from ConnectWise, read one page of results, and staged the same ticket on every unit of a multi-unit order. Devices logged in the Onsite Survey app were re-keyed by hand.',
+    built: [
+      'Three Python runbooks on Azure Automation that upsert contacts, sites, and purchase-order lines into twelve SharePoint lists, with full pagination and a staging floor for the backlog.',
+      'A daily one-way bridge from the Onsite Survey app: create-only and idempotent, with three-tier matching (alias, exact, word overlap) for asset types, sites, and contacts.',
+      'Dry-run gating, continue-on-error with a non-zero exit, and a failure summary emailed after every run, so cutover is a flag flip.',
+    ],
+    stack: ['Azure Automation', 'Python', 'ConnectWise API', 'Microsoft Graph', 'SharePoint'],
+    outcomes: [
+      { value: '281 rows', label: 'Missed by the old flows' },
+      { value: '12 lists', label: 'Kept in sync from ConnectWise' },
+      { value: 'Idempotent', label: 'Safe to re-run any day' },
+    ],
+    takeaway:
+      'Low-code flows are cheap to start and expensive to trust. Tested, re-runnable code made the data boring, which is the point.',
+    art: 'sync',
+    seoDescription:
+      'Case study: replacing scheduled Power Automate flows with idempotent Azure Automation Python runbooks that sync ConnectWise contacts, sites, and purchase orders into SharePoint, plus a fuzzy-matched bridge from a field survey app, at Greene Information Systems.',
+    updated: '2026-09-10',
   },
   {
     slug: 'in-touch-marketing-saas',

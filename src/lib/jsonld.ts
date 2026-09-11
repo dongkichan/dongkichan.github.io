@@ -46,7 +46,10 @@ export function homeJsonLd(): JsonLd[] {
         '@type': 'Occupation',
         name: profile.title,
         occupationLocation: { '@type': 'Country', name: profile.location.country },
-        skills: ['React', 'Next.js', 'Vite', 'TypeScript', 'Angular', 'Spring Boot', 'AI-Augmented Engineering', 'Claude Code', 'Azure Static Web Apps'],
+        skills: [
+          'React', 'Next.js', 'Vite', 'TypeScript', 'Angular', 'Spring Boot', 'Azure Automation', 'Workflow Automation',
+          'Systems Integration', 'ConnectWise PSA', 'Microsoft Graph', 'Python', 'AI-Augmented Engineering', 'Claude Code', 'Azure Static Web Apps',
+        ],
       },
       worksFor: { '@type': 'Organization', name: 'Greene Information Systems' },
       contactPoint: {

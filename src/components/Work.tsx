@@ -42,7 +42,7 @@ export function Work({ onOpen }: { onOpen?: (slug: string, trigger: HTMLElement)
       <div className="container">
         <div className="section-head">
           <h2 id="work-title">Selected work</h2>
-          <p>Seven projects since 2019, for clients you can look up.</p>
+          <p>Nine projects since 2019, for clients you can look up.</p>
         </div>
         <ul className={s.list}>
           {projects.map((p) => <WorkRow key={p.slug} project={p} onOpen={onOpen} />)}

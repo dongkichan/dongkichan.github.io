@@ -8,7 +8,7 @@ import { join } from 'node:path'
 
 const dist = 'dist'
 const SLUGS = [
-  'powerapps-react-migration', 'in-touch-marketing-saas', 'government-tax-platform', 'laboratory-inventory',
+  'powerapps-react-migration', 'receiving-automation-runbooks', 'asset-inventory-sync-runbooks', 'in-touch-marketing-saas', 'government-tax-platform', 'laboratory-inventory',
   'dpulse-log-analyzer', 'image-classification-deep-learning', 'mailbug-email-for-seniors',
 ]
 const ORIGIN = 'https://christiangastardo.dev'
@@ -54,7 +54,7 @@ for (const page of pages) {
       const parsed = JSON.parse(b)
       const type = Array.isArray(parsed['@type']) ? parsed['@type'][0] : parsed['@type']
       if (type !== page.ld[i]) fail(`${page.file}: JSON-LD block ${i} is ${type}, expected ${page.ld[i]}`)
-      if (type === 'ItemList' && parsed.numberOfItems !== 7) fail(`${page.file}: ItemList should have 7 items`)
+      if (type === 'ItemList' && parsed.numberOfItems !== SLUGS.length) fail(`${page.file}: ItemList should have ${SLUGS.length} items`)
     } catch (e) {
       fail(`${page.file}: JSON-LD block ${i} does not parse: ${e.message}`)
     }
@@ -79,8 +79,8 @@ ok('404.html')
 // Sitemap lists exactly the 8 canonical URLs.
 const locs = [...read('sitemap.xml').matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1])
 const expected = [`${ORIGIN}/`, ...SLUGS.map((s) => `${ORIGIN}/work/${s}/`)]
-if (locs.length !== 8 || expected.some((u) => !locs.includes(u))) fail(`sitemap.xml: expected 8 canonical URLs, got ${locs.join(', ')}`)
-ok('sitemap.xml lists 8 URLs')
+if (locs.length !== expected.length || expected.some((u) => !locs.includes(u))) fail(`sitemap.xml: expected ${expected.length} canonical URLs, got ${locs.join(', ')}`)
+ok(`sitemap.xml lists ${expected.length} URLs`)
 
 // JS weight budget.
 const assets = readdirSync(join(dist, 'assets')).filter((f) => f.endsWith('.js'))
@@ -105,8 +105,8 @@ const words = (html) => {
 }
 const homeWords = words(read('index.html'))
 console.log(`  · home page visible words: ${homeWords}`)
-// 950 allows for client names, image captions and the nav; the original page carried about 1,490.
-if (homeWords > 950) fail(`index.html: ${homeWords} default-visible words, budget is 950`)
+// 1,050 allows nine project rows, client names, image captions and the nav; the original page carried about 1,490.
+if (homeWords > 1050) fail(`index.html: ${homeWords} default-visible words, budget is 1050`)
 for (const s of SLUGS) {
   const w = words(read(`work/${s}/index.html`))
   if (w > 260) fail(`work/${s}: ${w} visible words, budget is 260`)
