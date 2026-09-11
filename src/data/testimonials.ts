@@ -25,6 +25,16 @@ export const testimonials: readonly Testimonial[] = [
   },
   {
     quote:
+      'He is a very fast learner. We were looking for a React person, and Christian was an Angular developer. Within weeks he had picked it up. He gets the job done.',
+    name: 'Luis Daniel Pambid',
+    title: 'Software Engineer and mentor, Greene Information Systems',
+    source: 'LinkedIn',
+    date: 'Aug 2026',
+    href: LINKEDIN,
+    highlights: ['He gets the job done'],
+  },
+  {
+    quote:
       'An outstanding software engineer. From the moment he joined, he made an immediate impact through his strong Angular expertise. Excellent work ethic, reliable, proactive — a true asset to any organization.',
     name: 'Dean Robbie Tan',
     title: 'Direct manager',

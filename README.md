@@ -19,6 +19,7 @@ npm run dev        # Vite dev server (case-study routes work via SPA fallback)
 npm run check      # typecheck + lint + tests + build + verify, what CI runs
 npm run build      # client build → SSR build → prerender to dist/
 npm run preview    # serve dist/ locally
+npm run cv         # regenerate public/Christian_Paul_Gastardo_CV.pdf from src/data/ (needs Google Chrome)
 ```
 
 ## Layout
@@ -38,7 +39,7 @@ tests/                     node:test suites for src/lib and routes
 
 ## Editing content
 
-Change the words in `src/data/*.ts` and push. To swap the hero headline, edit `profile.hero.headline` (two alternatives are kept alongside it). To change availability, edit `profile.availability`. To add a project, add an entry to `projects` and a scene in `src/components/art/scenes/`; routes, sitemap, and JSON-LD follow automatically.
+Change the words in `src/data/*.ts` and push. To swap the hero headline, edit `profile.hero.headline` (two alternatives are kept alongside it). To change availability, edit `profile.availability`. The CV PDF is rendered from the same data by `scripts/build-cv.ts` (CV-only facts such as phone and month-level dates live in `src/data/cv.ts` and `experience[].dates`); run `npm run cv` after a content change and commit the PDF. To add a project, add an entry to `projects` and a scene in `src/components/art/scenes/`; routes, sitemap, and JSON-LD follow automatically.
 
 ## SEO
 

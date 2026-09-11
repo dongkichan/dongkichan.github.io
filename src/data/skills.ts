@@ -19,6 +19,7 @@ export const knowsAbout: readonly string[] = [
   'React', 'Next.js', 'Vite', 'TypeScript', 'TailwindCSS', 'Angular', 'NgRx', 'RxJS', 'Spring Boot', 'Java',
   'Node.js', 'Microservices', 'REST APIs', 'AI-Augmented Development', 'Claude Code', 'Codex',
   'LLM Workflow Design', 'Prompt Engineering', 'PowerApps', 'Power Automate', 'Microsoft Graph', 'SharePoint',
-  'Azure Static Web Apps', 'Azure DevOps', 'AWS', 'GCP', 'Full-Stack Development', 'Frontend Engineering',
-  'Software Architecture',
+  'Azure Automation', 'Workflow Automation', 'Process Automation', 'Systems Integration', 'ConnectWise PSA Integration',
+  'Python Runbooks', 'Microsoft Teams Integration', 'Azure Static Web Apps', 'Azure DevOps', 'AWS', 'GCP',
+  'Full-Stack Development', 'Frontend Engineering', 'Software Architecture',
 ]

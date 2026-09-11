@@ -16,13 +16,16 @@ export function About() {
           </div>
           <div className={s.block}>
             <p className={s.blockTitle}>Education</p>
-            <p className={s.edu}>
-              <picture>
+            <div className={s.edu}>
+              <picture className={s.eduLogo}>
                 <source srcSet={education.logo.webp} type="image/webp" />
                 <img src={education.logo.png} width={education.logo.width} height={education.logo.height} alt={education.logo.alt} loading="lazy" />
               </picture>
-              <span>{education.degree}, {education.school}, {education.years}</span>
-            </p>
+              <p>
+                <span className={s.eduDegree}>{education.degree}</span>
+                <span>{education.school}, {education.years}</span>
+              </p>
+            </div>
           </div>
         </div>
         <div className={s.creds}>

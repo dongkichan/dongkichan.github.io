@@ -1,5 +1,8 @@
 export interface Role {
+  /** Short range for the on-page timeline. */
   years: string
+  /** Month-level range for the CV PDF. */
+  dates: string
   title: string
   company: string
   location: string
@@ -12,19 +15,21 @@ export interface Role {
 export const experience: readonly Role[] = [
   {
     years: '2026 — now',
-    title: 'Software Developer, PowerApps to React Migration',
+    dates: 'Apr 2026 – present',
+    title: 'Software Developer, PowerApps to React Migration and Automation',
     company: 'Greene Information Systems',
     location: 'Remote (US)',
-    summary: 'Legacy PowerApps rebuilt as production React with an AI-first workflow.',
+    summary: 'Legacy PowerApps rebuilt as production React, plus the automation that keeps the data moving.',
     bullets: [
       'Migrating legacy PowerApps into production-grade React, Vite, and Tailwind apps using an AI-first workflow.',
       'Claude Code and Codex as primary tools for planning, code generation, and refactoring; features owned end to end.',
-      'Deploys to Azure Static Web Apps via Azure DevOps Repos and Pipelines; Azure Automation runbooks maintained.',
-      'Integrations across Microsoft Graph, SharePoint, and external platforms, with documented handovers.',
+      'Unattended automation on Azure Automation: Python runbooks that reconcile ConnectWise, carrier tracking, and SharePoint on a measured schedule, replacing fragile Power Automate flows.',
+      'Deploys to Azure Static Web Apps via Azure DevOps; integrations across Microsoft Graph, SharePoint, Teams, and external platforms, with documented handovers.',
     ],
   },
   {
     years: '2025',
+    dates: 'Feb 2025 – Jul 2025',
     title: 'Full-Stack Software Engineer',
     company: 'Indicia Worldwide',
     location: 'Remote (UK)',
@@ -38,6 +43,7 @@ export const experience: readonly Role[] = [
   },
   {
     years: '2024 — 25',
+    dates: 'Jun 2024 – Feb 2025',
     title: 'Packaged App Development Senior Analyst',
     company: 'Accenture',
     location: 'Cebu, PH',
@@ -51,6 +57,7 @@ export const experience: readonly Role[] = [
   },
   {
     years: '2023 — 24',
+    dates: 'Feb 2023 – Nov 2024',
     title: 'Senior Full-Stack Developer, Top Rated Plus',
     company: 'Upwork, long-term client engagements',
     location: 'Remote',
@@ -64,6 +71,7 @@ export const experience: readonly Role[] = [
   },
   {
     years: '2021 — 23',
+    dates: 'Feb 2021 – Oct 2023',
     title: 'Application Systems Engineer',
     company: 'Fujitsu GDC Philippines (via WeServ)',
     location: 'Cebu, PH',
@@ -77,6 +85,7 @@ export const experience: readonly Role[] = [
   },
   {
     years: '2019 — 20',
+    dates: 'May 2019 – Sep 2020',
     title: 'Software Engineer, Android Developer',
     company: 'Koda Kollectiv',
     location: 'Mandaue City, PH',

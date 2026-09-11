@@ -9,14 +9,14 @@ test('safeJsonLd() escapes "<" so a closing script tag cannot break out of the b
   assert.deepEqual(JSON.parse(out), { name: '</script><script>alert(1)</script>' })
 })
 
-test('homeJsonLd() returns Person+ProfessionalService, WebSite and a 7-item ItemList', () => {
+test('homeJsonLd() returns Person+ProfessionalService, WebSite and a 9-item ItemList', () => {
   const blocks = homeJsonLd()
   assert.equal(blocks.length, 3)
   assert.deepEqual(blocks[0]!['@type'], ['Person', 'ProfessionalService'])
   assert.equal(blocks[1]!['@type'], 'WebSite')
   assert.equal(blocks[2]!['@type'], 'ItemList')
-  assert.equal(blocks[2]!.numberOfItems, 7)
-  assert.equal(blocks[2]!.itemListElement.length, 7)
+  assert.equal(blocks[2]!.numberOfItems, 9)
+  assert.equal(blocks[2]!.itemListElement.length, 9)
 })
 
 test('caseJsonLd() returns a CreativeWork and a 3-item BreadcrumbList for the project', () => {
