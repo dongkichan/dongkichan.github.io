@@ -1,5 +1,6 @@
 import { experience } from '../data/experience'
 import { profile } from '../data/profile'
+import { sections } from '../data/sections'
 import s from './Cv.module.css'
 
 export function Cv() {
@@ -7,7 +8,7 @@ export function Cv() {
     <section id="cv" className="section" aria-labelledby="cv-title">
       <div className="container">
         <div className="section-head">
-          <h2 id="cv-title">The path, so far</h2>
+          <h2 id="cv-title">{sections.cv.title}</h2>
         </div>
         <ol className={s.list}>
           {experience.map((r) => (

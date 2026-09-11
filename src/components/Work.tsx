@@ -1,5 +1,6 @@
 import { useRef, type MouseEvent } from 'react'
 import { projects, type Project } from '../data/projects'
+import { sections } from '../data/sections'
 import { useInView } from '../hooks/useInView'
 import { cx } from '../lib/cx'
 import { ProjectArt } from './art/ProjectArt'
@@ -41,8 +42,8 @@ export function Work({ onOpen }: { onOpen?: (slug: string, trigger: HTMLElement)
     <section id="work" className="section" aria-labelledby="work-title">
       <div className="container">
         <div className="section-head">
-          <h2 id="work-title">Selected work</h2>
-          <p>Nine projects since 2019, for clients you can look up.</p>
+          <h2 id="work-title">{sections.work.title}</h2>
+          <p>{sections.work.aside}</p>
         </div>
         <ul className={s.list}>
           {projects.map((p) => <WorkRow key={p.slug} project={p} onOpen={onOpen} />)}

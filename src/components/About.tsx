@@ -1,4 +1,5 @@
 import { profile } from '../data/profile'
+import { sections } from '../data/sections'
 import { headlineSkills } from '../data/skills'
 import { awards, certifications, education } from '../data/credentials'
 import s from './About.module.css'
@@ -8,7 +9,7 @@ export function About() {
     <section id="about" className="section" aria-labelledby="about-title">
       <div className={`container ${s.grid}`}>
         <div>
-          <h2 id="about-title" className={s.h2}>Some context</h2>
+          <h2 id="about-title" className={s.h2}>{sections.about.title}</h2>
           <div className={s.bio}>{profile.bio.map((p) => <p key={p.slice(0, 24)}>{p}</p>)}</div>
           <div className={s.block}>
             <p className={s.blockTitle}>Stack</p>

@@ -1,4 +1,5 @@
 import type { ReactNode } from 'react'
+import { sections } from '../data/sections'
 import { testimonials, type Testimonial } from '../data/testimonials'
 import s from './Testimonials.module.css'
 
@@ -25,8 +26,8 @@ export function Testimonials() {
     <section id="proof" className="section" aria-labelledby="proof-title">
       <div className="container">
         <div className="section-head">
-          <h2 id="proof-title">Kind words</h2>
-          <p>In their own words. Each one links to its source.</p>
+          <h2 id="proof-title">{sections.proof.title}</h2>
+          <p>{sections.proof.aside}</p>
         </div>
         {lead ? (
           <figure className={s.lead}>

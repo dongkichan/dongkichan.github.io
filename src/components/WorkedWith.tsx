@@ -1,11 +1,12 @@
 import type { CSSProperties } from 'react'
 import { profile } from '../data/profile'
+import { sections } from '../data/sections'
 import s from './WorkedWith.module.css'
 
 export function WorkedWith() {
   return (
     <section aria-label="Organisations worked with" className={`container ${s.wrap}`}>
-      <p className={s.lead}>Worked with teams at</p>
+      <p className={s.lead}>{sections.workedWith.lead}</p>
       <ul className={s.row}>
         {profile.workedWith.map((org) => (
           <li key={org.name}>
