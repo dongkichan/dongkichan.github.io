@@ -1,5 +1,6 @@
 import { useRef } from 'react'
 import { commitments, processSteps } from '../data/process'
+import { sections } from '../data/sections'
 import { useInView } from '../hooks/useInView'
 import { cx } from '../lib/cx'
 import { BuildSession } from './BuildSession'
@@ -12,8 +13,8 @@ export function Process() {
     <section id="process" className="section" aria-labelledby="process-title">
       <div className="container">
         <div className="section-head">
-          <h2 id="process-title">How the work gets done</h2>
-          <p>Four steps, every time.</p>
+          <h2 id="process-title">{sections.process.title}</h2>
+          <p>{sections.process.aside}</p>
         </div>
         <div className={s.grid}>
           <ol ref={ref} className={cx(s.steps, inView && 'is-in')}>
@@ -29,7 +30,7 @@ export function Process() {
         </div>
         {commitments.length ? (
           <>
-            <p className={s.commitLead}>What you can hold me to</p>
+            <p className={s.commitLead}>{sections.process.commitmentsLead}</p>
             <ul className={s.commit}>
               {commitments.map((c) => (
                 <li key={c.name}><h3>{c.name}</h3><p>{c.text}</p></li>
