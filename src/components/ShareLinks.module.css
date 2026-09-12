@@ -1,0 +1,7 @@
+.share { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 18px; flex-basis: 100%; font-size: var(--fs-small); color: var(--muted); }
+.label { font-family: var(--font-mono); font-size: var(--fs-mono); color: var(--faint); }
+.share a, .copy { color: var(--muted); text-decoration: underline; text-decoration-color: var(--line-strong); text-underline-offset: 0.18em; transition: color 0.2s var(--ease); }
+.share a:hover, .copy:hover { color: var(--text); text-decoration-color: var(--accent); }
+/* Needs the clipboard or a share sheet, so it only appears once JS is running. */
+.copy { display: none; }
+:global(html.js) .copy { display: inline; }

@@ -5,6 +5,7 @@ import { useInView } from '../hooks/useInView'
 import { cx } from '../lib/cx'
 import { ProjectArt } from './art/ProjectArt'
 import { ProjectMedia } from './ProjectMedia'
+import { ShareLinks } from './ShareLinks'
 import s from './CaseStudy.module.css'
 
 export function CaseStudy({ project, context, titleId }: { project: Project; context: 'page' | 'modal'; titleId: string }) {
@@ -59,6 +60,7 @@ export function CaseStudy({ project, context, titleId }: { project: Project; con
         <p>Like this work?</p>
         <a className="btn btn-primary" href={mailto}>Start a project</a>
         <a className="text-link" href="/#work">All work</a>
+        <ShareLinks project={project} />
       </footer>
     </article>
   )

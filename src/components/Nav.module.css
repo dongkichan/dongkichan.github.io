@@ -4,16 +4,19 @@
   backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
   border-bottom: 1px solid var(--line);
 }
-.inner { display: flex; align-items: center; justify-content: space-between; gap: 24px; min-height: 68px; }
+/* The row must fit the 1072px content column at the widest layout; the gaps below are sized for that. */
+.inner { display: flex; align-items: center; justify-content: space-between; gap: 20px; min-height: 68px; }
 .brand { font-weight: 500; text-decoration: none; letter-spacing: -0.01em; white-space: nowrap; }
-.links { display: flex; gap: 28px; }
-.links a { font-size: var(--fs-small); color: var(--muted); text-decoration: none; transition: color 0.2s var(--ease); }
+.links { display: flex; gap: 24px; }
+.links a { white-space: nowrap; font-size: var(--fs-small); color: var(--muted); text-decoration: none; transition: color 0.2s var(--ease); }
 .links a:hover { color: var(--text); }
-.right { display: flex; align-items: center; gap: 18px; }
+.right { display: flex; align-items: center; gap: 16px; }
 .status { display: inline-flex; align-items: center; gap: 8px; font-family: var(--font-mono); font-size: var(--fs-mono); color: var(--muted); white-space: nowrap; }
 .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 0 4px rgba(224, 182, 108, 0.18); }
 .cv { font-size: var(--fs-small); color: var(--muted); text-decoration: none; white-space: nowrap; }
 .cv:hover { color: var(--text); }
+/* Case pages carry the longer "All work" label, so the availability text yields; the footer repeats it and the dot keeps its title. */
+.case .status span:last-child { display: none; }
 @media (max-width: 1180px) {
   .links { gap: 22px; }
   .status span:last-child { display: none; }

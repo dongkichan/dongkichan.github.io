@@ -2,6 +2,7 @@ import { profile } from '../data/profile'
 import { projects, type Project } from '../data/projects'
 import { knowsAbout } from '../data/skills'
 import { awards, certifications, education } from '../data/credentials'
+import { ogCardPath } from './og'
 import { SITE_ORIGIN, absolute } from './url'
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -103,6 +104,7 @@ export function caseJsonLd(project: Project): JsonLd[] {
       name: project.title,
       description: project.seoDescription,
       url,
+      image: absolute(ogCardPath(project)),
       author: person(),
       creator: { '@type': 'Person', name: profile.name },
       keywords: project.stack.join(', '),

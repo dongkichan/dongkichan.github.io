@@ -1,6 +1,7 @@
 import { profile } from '../data/profile'
 import type { Route } from '../routes'
 import { caseJsonLd, homeJsonLd, safeJsonLd, type JsonLd } from './jsonld'
+import { OG_CARD, ogCardPath } from './og'
 import { absolute } from './url'
 
 export const escapeAttr = (s: string): string =>
@@ -13,7 +14,23 @@ export interface PageMeta {
   keywords: string
   url: string
   index: boolean
+  image: PageImage
   jsonLd: JsonLd[]
+}
+
+export interface PageImage {
+  url: string
+  width: number
+  height: number
+  alt: string
+}
+
+/** The portrait: the preview image for the home page and anything without artwork of its own. */
+const portrait: PageImage = {
+  url: absolute(profile.photo.jpg),
+  width: profile.photo.width,
+  height: profile.photo.height,
+  alt: profile.photo.alt,
 }
 
 export function pageMeta(route: Route): PageMeta {
@@ -26,6 +43,7 @@ export function pageMeta(route: Route): PageMeta {
         keywords: profile.seo.keywords,
         url: absolute('/'),
         index: true,
+        image: portrait,
         jsonLd: homeJsonLd(),
       }
     case 'case': {
@@ -37,6 +55,7 @@ export function pageMeta(route: Route): PageMeta {
         keywords: [p.title, ...p.stack, 'Case Study', profile.name, profile.title].join(', '),
         url: absolute(route.path),
         index: true,
+        image: { url: absolute(ogCardPath(p)), ...OG_CARD, alt: `${p.title} — case study by ${profile.name}` },
         jsonLd: caseJsonLd(p),
       }
     }
@@ -48,6 +67,7 @@ export function pageMeta(route: Route): PageMeta {
         keywords: '',
         url: absolute('/404/'),
         index: false,
+        image: portrait,
         jsonLd: [],
       }
   }
@@ -59,7 +79,6 @@ const meta = (attr: 'name' | 'property', key: string, content: string) =>
 /** Everything per-route that goes inside <head>. Static tags live in index.html. */
 export function buildHead(route: Route): string {
   const m = pageMeta(route)
-  const image = absolute(profile.photo.jpg)
   const lines = [
     `<title>${escapeAttr(m.title)}</title>`,
     meta('name', 'title', m.title),
@@ -74,17 +93,18 @@ export function buildHead(route: Route): string {
     meta('property', 'og:url', m.url),
     meta('property', 'og:title', m.ogTitle),
     meta('property', 'og:description', m.description),
-    meta('property', 'og:image', image),
-    meta('property', 'og:image:width', String(profile.photo.width)),
-    meta('property', 'og:image:height', String(profile.photo.height)),
-    meta('property', 'og:image:alt', profile.photo.alt),
+    meta('property', 'og:image', m.image.url),
+    meta('property', 'og:image:width', String(m.image.width)),
+    meta('property', 'og:image:height', String(m.image.height)),
+    meta('property', 'og:image:alt', m.image.alt),
     meta('property', 'og:site_name', profile.seo.siteName),
     meta('property', 'og:locale', 'en_US'),
     meta('name', 'twitter:card', 'summary_large_image'),
     meta('name', 'twitter:url', m.url),
     meta('name', 'twitter:title', m.ogTitle),
     meta('name', 'twitter:description', m.description),
-    meta('name', 'twitter:image', image),
+    meta('name', 'twitter:image', m.image.url),
+    meta('name', 'twitter:image:alt', m.image.alt),
     ...m.jsonLd.map((block) => `<script type="application/ld+json">${safeJsonLd(block)}</script>`),
   ]
   return lines.filter(Boolean).join('\n    ')

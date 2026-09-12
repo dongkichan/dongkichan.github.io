@@ -4,6 +4,16 @@
  * live in profile.ts with the rest of the personal details.
  */
 export const sections = {
+  nav: {
+    /* `caseLabel` replaces `label` on case-study pages, where the link leads back to the home page. */
+    links: [
+      { label: 'Work', caseLabel: 'All work', href: '#work' },
+      { label: 'Process', href: '#process' },
+      { label: 'Proof', href: '#proof' },
+      { label: 'CV', href: '#cv' },
+      { label: 'Contact', href: '#contact' },
+    ],
+  },
   workedWith: { lead: 'Worked with teams at' },
   work: {
     title: 'Selected work',
@@ -21,4 +31,15 @@ export const sections = {
   },
   about: { title: 'Some context' },
   cv: { title: 'The path, so far' },
+  /* The share row at the foot of every case study. */
+  share: {
+    label: 'Share',
+    targets: { linkedin: 'LinkedIn', x: 'X', email: 'Email' },
+    /* Follows the project title in posts and subject lines: "Title — Case study by Name". */
+    blurb: 'Case study by',
+    copy: 'Copy link',
+    copied: 'Link copied',
+    /* Shown instead of "Copy link" on devices with a native share sheet. */
+    native: 'More…',
+  },
 } as const

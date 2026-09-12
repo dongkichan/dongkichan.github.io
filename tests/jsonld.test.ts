@@ -29,3 +29,9 @@ test('caseJsonLd() returns a CreativeWork and a 3-item BreadcrumbList for the pr
   assert.equal(blocks[1]!.itemListElement.length, 3)
   assert.equal(blocks[1]!.itemListElement[2].name, project.title)
 })
+
+test('caseJsonLd() gives the CreativeWork the case-study card as its image', () => {
+  const project = projects[0]!
+  const [work] = caseJsonLd(project)
+  assert.equal(work!.image, `https://christiangastardo.dev/assets/images/og/${project.slug}.png`)
+})

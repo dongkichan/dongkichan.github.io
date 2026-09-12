@@ -29,3 +29,18 @@ test('buildHead() marks the not-found page noindex', () => {
   const head = buildHead(notFoundRoute)
   assert.ok(head.includes('<meta name="robots" content="noindex'))
 })
+
+test('buildHead() for a case route points og:image and twitter:image at the case-study card, not the portrait', () => {
+  const head = buildHead(resolveRoute('/work/mailbug-email-for-seniors/'))
+  const card = 'https://christiangastardo.dev/assets/images/og/mailbug-email-for-seniors.png'
+  assert.ok(head.includes(`<meta property="og:image" content="${card}">`), 'og:image should be the card')
+  assert.ok(head.includes(`<meta name="twitter:image" content="${card}">`), 'twitter:image should be the card')
+  assert.ok(head.includes('<meta property="og:image:width" content="1200">'))
+  assert.ok(head.includes('<meta property="og:image:height" content="630">'))
+  assert.ok(!head.includes('christian-paul-gastardo-profile-photo'), 'portrait should not appear on a case page')
+})
+
+test('buildHead() for the home route keeps the portrait as its og:image', () => {
+  const head = buildHead(resolveRoute('/'))
+  assert.ok(head.includes('<meta property="og:image" content="https://christiangastardo.dev/assets/images/optimized/christian-paul-gastardo-profile-photo.jpg">'))
+})
