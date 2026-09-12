@@ -12,6 +12,9 @@ const SLUGS = [
   'dpulse-log-analyzer', 'image-classification-deep-learning', 'mailbug-email-for-seniors',
 ]
 const ORIGIN = 'https://christiangastardo.dev'
+const PORTRAIT = '/assets/images/optimized/christian-paul-gastardo-profile-photo.jpg'
+const ogCard = (slug) => `assets/images/og/${slug}.png`
+const OG_CARD = { width: 1200, height: 630, maxBytes: 1024 * 1024 }
 const JS_BUDGET_GZIP = 100 * 1024
 const failures = []
 const fail = (msg) => failures.push(msg)
@@ -23,6 +26,7 @@ const required = [
   'index.html', '404.html', 'CNAME', 'robots.txt', 'sitemap.xml', 'favicon.svg', '.nojekyll',
   'googleeb31ef72d2c3af0e.html', 'Christian_Paul_Gastardo_CV.pdf', 'assets/images/apple-touch-icon.png',
   ...SLUGS.map((s) => `work/${s}/index.html`),
+  ...SLUGS.map(ogCard),
 ]
 for (const f of required) {
   if (existsSync(join(dist, f))) ok(`exists ${f}`)
@@ -31,8 +35,8 @@ for (const f of required) {
 if (failures.length) finish()
 
 // Per-page checks.
-const pages = [{ file: 'index.html', url: `${ORIGIN}/`, ld: ['Person', 'WebSite', 'ItemList'] }]
-  .concat(SLUGS.map((s) => ({ file: `work/${s}/index.html`, url: `${ORIGIN}/work/${s}/`, ld: ['CreativeWork', 'BreadcrumbList'] })))
+const pages = [{ file: 'index.html', url: `${ORIGIN}/`, image: `${ORIGIN}${PORTRAIT}`, ld: ['Person', 'WebSite', 'ItemList'] }]
+  .concat(SLUGS.map((s) => ({ file: `work/${s}/index.html`, url: `${ORIGIN}/work/${s}/`, image: `${ORIGIN}/${ogCard(s)}`, ld: ['CreativeWork', 'BreadcrumbList'] })))
 for (const page of pages) {
   const html = read(page.file)
   const count = (re) => (html.match(re) ?? []).length
@@ -43,6 +47,9 @@ for (const page of pages) {
   if (count(/<link rel="canonical"/g) !== 1) fail(`${page.file}: expected exactly one canonical`)
   if (!html.includes(`<link rel="canonical" href="${page.url}">`)) fail(`${page.file}: canonical does not match ${page.url}`)
   if (!html.includes('G-ZGW5YW2H21')) fail(`${page.file}: analytics tag missing`)
+  // The home page previews with the portrait; each case study previews with its own share card.
+  if (!html.includes(`<meta property="og:image" content="${page.image}">`)) fail(`${page.file}: og:image should be ${page.image}`)
+  if (!html.includes(`<meta name="twitter:image" content="${page.image}">`)) fail(`${page.file}: twitter:image should be ${page.image}`)
   if (/<link rel="stylesheet"[^>]*href="\/assets\//.test(html)) fail(`${page.file}: stylesheet should be inlined, not linked`)
   if (!html.includes('<style>')) fail(`${page.file}: inlined stylesheet missing`)
   if (html.includes('fonts.googleapis.com')) fail(`${page.file}: third-party font CSS should be gone`)
@@ -69,6 +76,16 @@ for (const ref of mediaRefs) {
   if (!existsSync(join(dist, ref))) fail(`missing project image ${ref}`)
 }
 ok(`${mediaRefs.length} project images present`)
+
+// Share cards are real PNGs at the Open Graph size, small enough for every network's crawler.
+for (const s of SLUGS) {
+  const png = readFileSync(join(dist, ogCard(s)))
+  if (png.readUInt32BE(0) !== 0x89504e47) fail(`${ogCard(s)}: not a PNG`)
+  const [w, h] = [png.readUInt32BE(16), png.readUInt32BE(20)]
+  if (w !== OG_CARD.width || h !== OG_CARD.height) fail(`${ogCard(s)}: ${w}x${h}, expected ${OG_CARD.width}x${OG_CARD.height}`)
+  if (png.length > OG_CARD.maxBytes) fail(`${ogCard(s)}: ${(png.length / 1024).toFixed(0)} KB, over ${OG_CARD.maxBytes / 1024} KB`)
+}
+ok(`${SLUGS.length} share cards at ${OG_CARD.width}x${OG_CARD.height}`)
 
 // 404 page is noindex and real content.
 const nf = read('404.html')
@@ -107,9 +124,10 @@ const homeWords = words(read('index.html'))
 console.log(`  · home page visible words: ${homeWords}`)
 // 1,050 allows nine project rows, client names, image captions and the nav; the original page carried about 1,490.
 if (homeWords > 1050) fail(`index.html: ${homeWords} default-visible words, budget is 1050`)
+// 270 allows the six-word share row under the case study; the copy itself stays under 260.
 for (const s of SLUGS) {
   const w = words(read(`work/${s}/index.html`))
-  if (w > 260) fail(`work/${s}: ${w} visible words, budget is 260`)
+  if (w > 270) fail(`work/${s}: ${w} visible words, budget is 270`)
 }
 ok('word budgets')
 
